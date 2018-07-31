@@ -14,14 +14,14 @@ export class AuthService {
   decodedToken: any;
   currentUser: User;
   jwtHelper = new JwtHelperService();
-  private photoUrl = new BehaviorSubject<string>('../../assets/user.png');
-  currentPhotoUrl = this.photoUrl.asObservable();
+  // private photoUrl = new BehaviorSubject<string>('../../assets/user.png');
+  // currentPhotoUrl = this.photoUrl.asObservable();
 
   constructor(private http: HttpClient,
       private jwtHelperService: JwtHelperService) { }
 
   changeMemberPhoto(photoUrl: string) {
-    this.photoUrl.next(photoUrl);
+    // this.photoUrl.next(photoUrl);
   }
 
   login(model: any) {

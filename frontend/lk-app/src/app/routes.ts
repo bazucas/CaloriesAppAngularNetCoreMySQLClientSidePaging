@@ -1,17 +1,15 @@
+import { SigninComponent } from './signin/signin.component';
 import { ContactComponent } from './contact/contact.component';
 import { AboutComponent } from './about/about.component';
 import { Routes } from '@angular/router';
 import { AuthGuard } from './_guards/auth.guard';
 import { HomeComponent } from './home/home.component';
-import { AccessComponent } from './access/access.component';
-
-
 
 export const appRoutes: Routes = [
     {path: 'home', component: HomeComponent},
     {path: 'about', component: AboutComponent},
     {path: 'contact', component: ContactComponent},
-    {path: 'access', component: AccessComponent},
+    {path: 'signin', component: SigninComponent},
     // {
     //     path: '',
     //     runGuardsAndResolvers: 'always',

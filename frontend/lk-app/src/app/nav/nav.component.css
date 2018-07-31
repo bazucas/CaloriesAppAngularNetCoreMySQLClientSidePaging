@@ -1,0 +1,32 @@
+.dropdown-menu li, .dropdown-toggle {
+    cursor: pointer;
+}
+
+input {
+    margin-right: 20px;
+}
+
+img {
+    padding-bottom: 10px;
+    width: 70px;
+    height: 60px;
+    margin-left: 20px;
+}
+
+ul {
+    float: right;
+}
+
+li a {
+    color: black;
+    font-family: "Open Sans";
+}
+
+.navbar {
+    padding-top: 10px;
+    background-color: white
+}
+
+navbar .navbar-fixed-top {
+    padding-top: 0px
+}
