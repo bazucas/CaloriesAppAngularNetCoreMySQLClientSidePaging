@@ -1,3 +1,5 @@
+import { RegisterComponent } from './register/register.component';
+import { MydiaryComponent } from './mydiary/mydiary.component';
 import { SigninComponent } from './signin/signin.component';
 import { ContactComponent } from './contact/contact.component';
 import { AboutComponent } from './about/about.component';
@@ -10,6 +12,8 @@ export const appRoutes: Routes = [
     {path: 'about', component: AboutComponent},
     {path: 'contact', component: ContactComponent},
     {path: 'signin', component: SigninComponent},
+    {path: 'mydiary', component: MydiaryComponent},
+    {path: 'register', component: RegisterComponent},
     // {
     //     path: '',
     //     runGuardsAndResolvers: 'always',

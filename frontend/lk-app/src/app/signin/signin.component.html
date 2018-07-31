@@ -1,16 +1,16 @@
 <div class="container">
-    <br />
-    <div class="col-md-6 col-md-offset-3">
-      <h1>Sign In</h1>
-      <form action="/post" method="post">
-        <input class="form-control" name="email" placeholder="E-mail..." />
-        <br />
-        <input class="form-control" name="password" type="password" placeholder="Password..." />
-        <br />
-        <input class="btn btn-primary" type="submit" value="Login" />
-        <br />
-        <br />
-      </form>
-    </div>
-  
+  <br />
+  <div class="col-md-8 col-md-offset-2">
+    <h1>Sign In</h1>
+    <form>
+      <input class="form-control" name="email" placeholder="E-mail..." />
+      <br />
+      <input class="form-control" name="password" type="password" placeholder="Password..." />
+      <br />
+      <input [routerLink]="['/mydiary']" class="btn btn-primary" value="Login" />
+      <br />
+      <br />
+      <input [routerLink]="['/register']" class="btn btn-primary" value="Register" />
+    </form>
   </div>
+</div>

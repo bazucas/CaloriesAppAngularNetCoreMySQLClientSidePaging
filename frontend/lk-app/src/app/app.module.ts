@@ -17,6 +17,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { JwtModule } from '@auth0/angular-jwt';
 import { FooterComponent } from './footer/footer.component';
 import { SigninComponent } from './signin/signin.component';
+import { BsDropdownModule, TabsModule, BsDatepickerModule, PaginationModule, ButtonsModule } from 'ngx-bootstrap';
+import { MydiaryComponent } from './mydiary/mydiary.component';
 
 export function jwtOptionsFactory(tokenService) {
   return {
@@ -40,12 +42,16 @@ export function tokenGetter() {
     RegisterComponent,
     LoginComponent,
     FooterComponent,
-    SigninComponent
+    SigninComponent,
+    MydiaryComponent
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
     RouterModule.forRoot(appRoutes),
+    PaginationModule.forRoot(),
+    BsDatepickerModule.forRoot(),
+    BsDropdownModule.forRoot(),
     JwtModule.forRoot({
       config: {
         tokenGetter: tokenGetter,
