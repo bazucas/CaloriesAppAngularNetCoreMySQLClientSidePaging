@@ -14,8 +14,8 @@
         <li routerLinkActive="active"><a [routerLink]="['/home']">Home</a></li>
         <li routerLinkActive="active"><a [routerLink]="['/about']">About</a></li>
         <li routerLinkActive="active"><a [routerLink]="['/contact']">Contact</a></li>
-        <li id="diary" routerLinkActive="active"><a [routerLink]="['/mydiary']">myDiary</a></li>
-        <li routerLinkActive="active"><a [routerLink]="['/signin']">SignIn</a></li>
+        <li id="diary" routerLinkActive="active"><a [routerLink]="['/mydiary']">my Diary</a></li>
+        <li routerLinkActive="active"><a [routerLink]="['/signin']">Sign In</a></li>
         <li class="dropdown" dropdown>
             <a (click)="false" class="dropdown-toggle" dropdownToggle>Welcome Luis {{authService.decodedToken?.unique_name | titlecase}} <span class="caret"></span></a>
             <ul class="dropdown-menu" *dropdownMenu>

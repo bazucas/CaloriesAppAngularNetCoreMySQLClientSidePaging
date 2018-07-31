@@ -20,6 +20,10 @@
     background: none !important;
     color: #333333;
   }
+
+a {
+    color: #000;
+  }
   
   .member-tabset > .nav-tabs > li.open > a > i, .member-tabset > .nav-tabs > li:hover > a > i {
     color: #a6a6a6;
@@ -30,7 +34,7 @@
   }
   
   .member-tabset > .nav-tabs > li.active {
-    border-bottom: 4px solid #E95420;
+    border-bottom: 4px solid rgb(216, 247, 230);
     position: relative;
   }
   
