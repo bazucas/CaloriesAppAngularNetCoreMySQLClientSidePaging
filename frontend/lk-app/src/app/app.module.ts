@@ -18,7 +18,10 @@ import { JwtModule } from '@auth0/angular-jwt';
 import { FooterComponent } from './footer/footer.component';
 import { SigninComponent } from './signin/signin.component';
 import { BsDropdownModule, TabsModule, BsDatepickerModule, PaginationModule, ButtonsModule } from 'ngx-bootstrap';
-import { MydiaryComponent } from './mydiary/mydiary.component';
+import { MyDiaryComponent } from './mydiary/mydiary.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { AddMealComponent } from './addmeal/addmeal.component';
+import { PageNotFoundComponent } from './pagenotfound/pagenotfound.component';
 
 export function jwtOptionsFactory(tokenService) {
   return {
@@ -43,15 +46,22 @@ export function tokenGetter() {
     LoginComponent,
     FooterComponent,
     SigninComponent,
-    MydiaryComponent
+    MyDiaryComponent,
+    AddMealComponent,
+    PageNotFoundComponent
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
-    RouterModule.forRoot(appRoutes),
+    // FormsModule,
+    // ReactiveFormsModule,
     PaginationModule.forRoot(),
     BsDatepickerModule.forRoot(),
     BsDropdownModule.forRoot(),
+    RouterModule.forRoot(appRoutes),
+    TabsModule.forRoot(),
+    HttpClientModule,
+    ButtonsModule.forRoot(),
     JwtModule.forRoot({
       config: {
         tokenGetter: tokenGetter,
