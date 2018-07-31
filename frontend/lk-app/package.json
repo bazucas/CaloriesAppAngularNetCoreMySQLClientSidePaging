@@ -1,6 +1,6 @@
 {
   "name": "lk-app",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
@@ -22,7 +22,18 @@
     "@angular/router": "^6.1.0",
     "core-js": "^2.5.4",
     "rxjs": "^6.0.0",
-    "zone.js": "~0.8.26"
+    "zone.js": "~0.8.26",
+    "@auth0/angular-jwt": "^2.0.0",
+    "alertifyjs": "^1.11.1",
+    "bootstrap": "^3.3.7",
+    "bootswatch": "^3.3.7",
+    "font-awesome": "^4.7.0",
+    "jquery": "^3.3.1",
+    "ng2-file-upload": "^1.3.0",
+    "ngx-bootstrap": "^3.0.1",
+    "ngx-gallery": "^5.5.0",
+    "time-ago-pipe": "^1.3.2",
+    "underscore": "^1.9.1"
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "~0.7.0",
@@ -32,6 +43,7 @@
     "@types/jasmine": "~2.8.6",
     "@types/jasminewd2": "~2.0.3",
     "@types/node": "~8.9.4",
+    "@types/underscore": "^1.8.8",
     "codelyzer": "~4.2.1",
     "jasmine-core": "~2.99.1",
     "jasmine-spec-reporter": "~4.2.1",
