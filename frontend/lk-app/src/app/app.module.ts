@@ -24,7 +24,8 @@ import { PageNotFoundComponent } from './pagenotfound/pagenotfound.component';
 import { UsersComponent } from './users/users.component';
 import { ListMealsComponent } from './listmeals/listmeals.component';
 import { ManageComponent } from './manage/manage.component';
-import { NgxDatatableModule } from '@swimlane/ngx-datatable';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatTableModule, MatSortModule } from '../../node_modules/@angular/material';
 
 export function jwtOptionsFactory(tokenService) {
   return {
@@ -58,7 +59,9 @@ export function tokenGetter() {
   imports: [
     BrowserModule,
     HttpClientModule,
-    NgxDatatableModule,
+    BrowserAnimationsModule,
+    MatTableModule,
+    MatSortModule,
     // FormsModule,
     // ReactiveFormsModule,
     PaginationModule.forRoot(),
