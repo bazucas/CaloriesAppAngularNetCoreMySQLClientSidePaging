@@ -1,7 +1,8 @@
 import {Component, OnInit, ViewChild} from '@angular/core';
-import {MatSort, MatTableDataSource} from '@angular/material';
+import {MatSort, MatTableDataSource, MatPaginator} from '@angular/material';
+import { User } from '../_models/User';
 
-const USER_DATA: PeriodicElement[] = [
+const USER_DATA: User[] = [
   {id: 1, name: 'Luís Silva', role: 'user'},
   {id: 2, name: 'Rúben Santos', role: 'user'},
   {id: 3, name: 'João António', role: 'user'},
@@ -14,12 +15,6 @@ const USER_DATA: PeriodicElement[] = [
 
 ];
 
-export interface PeriodicElement {
-  name: string;
-  id: number;
-  role: string;
-}
-
 @Component({
   selector: 'app-listmeals',
   templateUrl: './listmeals.component.html',
@@ -27,13 +22,16 @@ export interface PeriodicElement {
 })
 
 export class ListMealsComponent implements OnInit {
+  @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
   displayedColumns: string[] = ['id', 'name', 'role'];
-  dataSource = new MatTableDataSource(USER_DATA);
+  dataSource = new MatTableDataSource<User>(USER_DATA);
 
   constructor() { }
 
   ngOnInit() {
     this.dataSource.sort = this.sort;
+    this.dataSource.paginator = this.paginator;
   }
+
 }

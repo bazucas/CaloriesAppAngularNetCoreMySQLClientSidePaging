@@ -25,7 +25,7 @@ import { UsersComponent } from './users/users.component';
 import { ListMealsComponent } from './listmeals/listmeals.component';
 import { ManageComponent } from './manage/manage.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MatTableModule, MatSortModule } from '../../node_modules/@angular/material';
+import { MatTableModule, MatSortModule, MatPaginatorModule } from '../../node_modules/@angular/material';
 
 export function jwtOptionsFactory(tokenService) {
   return {
@@ -62,6 +62,7 @@ export function tokenGetter() {
     BrowserAnimationsModule,
     MatTableModule,
     MatSortModule,
+    MatPaginatorModule,
     // FormsModule,
     // ReactiveFormsModule,
     PaginationModule.forRoot(),
