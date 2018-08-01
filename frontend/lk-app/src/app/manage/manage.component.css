@@ -1,0 +1,9 @@
+div {
+    text-align: justify;
+    text-justify: inter-word;
+    font-family: "Open Sans";
+}
+
+a {
+    color: black;
+}

@@ -1,3 +1,6 @@
+import { UsersComponent } from './users/users.component';
+import { ListMealsComponent } from './listmeals/listmeals.component';
+import { ManageComponent } from './manage/manage.component';
 import { PageNotFoundComponent } from './pagenotfound/pagenotfound.component';
 import { RegisterComponent } from './register/register.component';
 import { MyDiaryComponent } from './mydiary/mydiary.component';
@@ -7,6 +10,7 @@ import { AboutComponent } from './about/about.component';
 import { Routes } from '@angular/router';
 import { AuthGuard } from './_guards/auth.guard';
 import { HomeComponent } from './home/home.component';
+import { AddMealComponent } from './addmeal/addmeal.component';
 
 export const appRoutes: Routes = [
     {path: 'home', component: HomeComponent},
@@ -14,7 +18,19 @@ export const appRoutes: Routes = [
     {path: 'contact', component: ContactComponent},
     {path: 'signin', component: SigninComponent},
     {path: 'mydiary', component: MyDiaryComponent},
+    {path: 'manage', component: ManageComponent},
     {path: 'register', component: RegisterComponent},
+    {path: 'users', component: UsersComponent},
+    {
+        path: 'mydiary',
+        component: MyDiaryComponent,
+        // runGuardsAndResolvers: 'always',
+        // canActivate: [AuthGuard],
+        children: [
+            {path: 'addmeal', component: AddMealComponent },
+            {path: 'listmeals', component: ListMealsComponent}
+        ]
+    },
     // {
     //     path: '',
     //     runGuardsAndResolvers: 'always',

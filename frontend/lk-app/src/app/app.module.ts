@@ -7,7 +7,6 @@ import { AboutComponent } from './about/about.component';
 import { ContactComponent } from './contact/contact.component';
 import { NavComponent } from './nav/nav.component';
 import { RegisterComponent } from './register/register.component';
-import { LoginComponent } from './login/login.component';
 import { AuthService } from './_services/auth.service';
 import { AlertifyService } from './_services/alertify.service';
 import { AuthGuard } from './_guards/auth.guard';
@@ -22,6 +21,10 @@ import { MyDiaryComponent } from './mydiary/mydiary.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AddMealComponent } from './addmeal/addmeal.component';
 import { PageNotFoundComponent } from './pagenotfound/pagenotfound.component';
+import { UsersComponent } from './users/users.component';
+import { ListMealsComponent } from './listmeals/listmeals.component';
+import { ManageComponent } from './manage/manage.component';
+import { NgxDatatableModule } from '@swimlane/ngx-datatable';
 
 export function jwtOptionsFactory(tokenService) {
   return {
@@ -43,16 +46,19 @@ export function tokenGetter() {
     ContactComponent,
     NavComponent,
     RegisterComponent,
-    LoginComponent,
     FooterComponent,
     SigninComponent,
     MyDiaryComponent,
     AddMealComponent,
-    PageNotFoundComponent
+    PageNotFoundComponent,
+    UsersComponent,
+    ListMealsComponent,
+    ManageComponent
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
+    NgxDatatableModule,
     // FormsModule,
     // ReactiveFormsModule,
     PaginationModule.forRoot(),
