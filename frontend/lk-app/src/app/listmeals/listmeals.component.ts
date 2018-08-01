@@ -34,4 +34,8 @@ export class ListMealsComponent implements OnInit {
     this.dataSource.paginator = this.paginator;
   }
 
+  applyFilter(filterValue: string) {
+    this.dataSource.filter = filterValue.trim().toLowerCase();
+  }
+
 }
