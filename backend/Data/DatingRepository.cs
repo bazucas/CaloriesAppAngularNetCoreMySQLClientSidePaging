@@ -27,16 +27,21 @@ namespace API.Data
             _context.Remove(entity);
         }
 
-        public async Task<Photo> GetMainPhotoForUser(int userId)
+        public Task<Photo> GetMainPhotoForUser(int userId)
         {
-            return await _context.Photos.Where(u => u.UserId == userId).FirstOrDefaultAsync(p => p.IsMain);
+            throw new NotImplementedException();
         }
 
-        public async Task<Photo> GetPhoto(int id)
+        public async Task<Meal> GetMeal(int id)
         {
-            var photo = await _context.Photos.FirstOrDefaultAsync(p => p.Id == id);
+            var meal = await _context.Meals.FirstOrDefaultAsync(p => p.Id == id);
             
-            return photo;
+            return meal;
+        }
+
+        public Task<Photo> GetPhoto(int id)
+        {
+            throw new NotImplementedException();
         }
 
         public async Task<User> GetUser(int id)
