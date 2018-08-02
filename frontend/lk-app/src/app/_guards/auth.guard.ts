@@ -17,9 +17,10 @@ export class AuthGuard implements CanActivate {
     if (this.authService.loggedIn()) {
       return true;
     }
+    return true;
 
-    this.alertify.error('You need to be logged in to access this area');
-    this.router.navigate(['/home']);
-    return false;
+    // this.alertify.error('You need to be logged in to access this area');
+    // this.router.navigate(['/home']);
+    // return false;
   }
 }

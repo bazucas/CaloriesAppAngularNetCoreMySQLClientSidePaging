@@ -17,7 +17,6 @@ export class NavComponent implements OnInit {
               private router: Router) { }
 
   ngOnInit() {
-    // this.authService.currentPhotoUrl.subscribe(photoUrl => this.photoUrl = photoUrl);
   }
 
   login() {
