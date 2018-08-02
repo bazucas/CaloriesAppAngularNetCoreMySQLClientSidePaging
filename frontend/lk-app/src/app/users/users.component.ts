@@ -36,4 +36,8 @@ export class UsersComponent implements OnInit {
     this.dataSource.filter = filterValue.trim().toLowerCase();
   }
 
+  alertt(val: string) {
+    alert(val);
+  }
+
 }

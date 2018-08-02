@@ -1,6 +1,7 @@
 import { Meals } from './../_models/Meals';
 import {Component, OnInit, ViewChild} from '@angular/core';
 import {MatSort, MatTableDataSource, MatPaginator} from '@angular/material';
+import { validateVerticalPosition } from '../../../node_modules/@angular/cdk/overlay';
 
 const MEAL_DATA: Meals[] = [
   {id: 1, description: 'Cozido à Portuguesa', cal: 800, date: new Date().toLocaleDateString(), time: new Date().toLocaleTimeString()},
@@ -37,4 +38,7 @@ export class ListMealsComponent implements OnInit {
     this.dataSource.filter = filterValue.trim().toLowerCase();
   }
 
+  alertt(val: string) {
+    alert(val);
+  }
 }
