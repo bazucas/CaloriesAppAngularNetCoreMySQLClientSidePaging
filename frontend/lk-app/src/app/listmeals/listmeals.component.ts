@@ -1,18 +1,17 @@
+import { Meals } from './../_models/Meals';
 import {Component, OnInit, ViewChild} from '@angular/core';
 import {MatSort, MatTableDataSource, MatPaginator} from '@angular/material';
-import { User } from '../_models/User';
 
-const USER_DATA: User[] = [
-  {id: 1, name: 'Luís Silva', role: 'user'},
-  {id: 2, name: 'Rúben Santos', role: 'user'},
-  {id: 3, name: 'João António', role: 'user'},
-  {id: 4, name: 'Pedro Simões', role: 'admin'},
-  {id: 5, name: 'Paulo Fernandes', role: 'user'},
-  {id: 6, name: 'João Areias', role: 'user'},
-  {id: 7, name: 'Marília Inácio', role: 'manager'},
-  {id: 8, name: 'Luís Inácio', role: 'manager'},
-  {id: 9, name: 'Rui Pedro', role: 'user'},
-
+const MEAL_DATA: Meals[] = [
+  {id: 1, description: 'Cozido à Portuguesa', cal: 800, date: new Date().toLocaleDateString(), time: new Date().toLocaleTimeString()},
+  {id: 2, description: 'Hambúrguer', cal: 600, date: new Date().toLocaleDateString(), time: new Date().toLocaleTimeString()},
+  {id: 3, description: 'Salada Cesar', cal: 200, date: new Date().toLocaleDateString(), time: new Date().toLocaleTimeString()},
+  {id: 4, description: 'Hot Dog', cal: 400, date: new Date().toLocaleDateString(), time: new Date().toLocaleTimeString()},
+  {id: 5, description: 'Pizza', cal: 700, date: new Date().toLocaleDateString(), time: new Date().toLocaleTimeString()},
+  {id: 6, description: 'Arroz de pato', cal: 400, date: new Date().toLocaleDateString(), time: new Date().toLocaleTimeString()},
+  {id: 7, description: 'Perna de perú assada', cal: 600, date: new Date().toLocaleDateString(), time: new Date().toLocaleTimeString()},
+  {id: 8, description: 'Coelho à caçador', cal: 500, date: new Date().toLocaleDateString(), time: new Date().toLocaleTimeString()},
+  {id: 9, description: 'Bucha', cal: 9999, date: new Date().toLocaleDateString(), time: new Date().toLocaleTimeString()}
 ];
 
 @Component({
@@ -24,8 +23,8 @@ const USER_DATA: User[] = [
 export class ListMealsComponent implements OnInit {
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
-  displayedColumns: string[] = ['id', 'name', 'role'];
-  dataSource = new MatTableDataSource<User>(USER_DATA);
+  displayedColumns: string[] = ['description', 'cal', 'date', 'time', 'options'];
+  dataSource = new MatTableDataSource<Meals>(MEAL_DATA);
 
   constructor() { }
 

@@ -1,3 +1,44 @@
-<p>
-  users works!
-</p>
+<br />
+<h1>Manage Users</h1>
+<br/>
+
+<mat-form-field>
+<input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
+</mat-form-field>
+
+<table multiTemplateDataRows  matSort mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+
+<ng-container matColumnDef="id">
+  <th mat-header-cell *matHeaderCellDef mat-sort-header> Id </th>
+  <td mat-cell *matCellDef="let element"> {{element.id}} </td>
+</ng-container>
+
+<ng-container matColumnDef="name">
+  <th mat-header-cell *matHeaderCellDef mat-sort-header> Name </th>
+  <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+</ng-container>
+
+<ng-container matColumnDef="role">
+  <th mat-header-cell *matHeaderCellDef mat-sort-header> Role </th>
+  <td mat-cell *matCellDef="let element"> {{element.role}} </td>
+</ng-container>
+
+<ng-container matColumnDef="added">
+  <th mat-header-cell *matHeaderCellDef mat-sort-header> Added </th>
+  <td mat-cell *matCellDef="let element"> {{element.added}} </td>
+</ng-container>
+
+<ng-container matColumnDef="maxCal">
+  <th mat-header-cell *matHeaderCellDef mat-sort-header> Max Cal </th>
+  <td mat-cell *matCellDef="let element"> {{element.maxCal}} </td>
+</ng-container>
+
+<ng-container matColumnDef="options">
+  <th mat-header-cell *matHeaderCellDef mat-sort-header> Options </th>
+  <td mat-cell *matCellDef="let element"> <img src="../../assets/pencil.png" alt="pencil"> <img src="../../assets/bin.png" alt="bin"> </td>
+</ng-container>
+
+<tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+<tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+</table>
+<mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
