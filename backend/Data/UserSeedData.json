@@ -3,22 +3,22 @@
     "Username": "Sarah",
     "Email": "female",
     "Password": "password",
-    "Created": "2018-08-01",
+    "Created": "2018-08-01 17:22:14",
     "Meals": [
       {
         "Description": "Roast beef",
         "Calories": 500,
-        "Added": "Thu Aug 01 2018 17:22:14 GMT+0100"
+        "Added": "2018-08-01 17:22:14"
       },
       {
         "Description": "Wellington Steak",
         "Calories": 400,
-        "Added": "Thu Aug 01 2018 17:22:14 GMT+0100"
+        "Added": "2018-08-01 17:22:14"
       },
       {
         "Description": "Caesar Salad",
         "Calories": 200,
-        "Added": "Thu Aug 02 2018 17:22:14 GMT+0100"
+        "Added": "2018-08-01 17:22:14 "
       }
     ]
   },
@@ -26,22 +26,22 @@
     "Username": "Freda",
     "Email": "female",
     "Password": "password",
-    "Created": "2018-08-01",
+    "Created": "2018-08-01 17:22:14",
     "Meals": [
       {
         "Description": "Pizza",
         "Calories": 300,
-        "Added": "Thu Aug 02 2018 17:22:14 GMT+0100"
+        "Added": "2018-08-01 17:22:14 "
       },
       {
         "Description": "Hotdog",
         "Calories": 500,
-        "Added": "Thu Aug 05 2018 17:22:14 GMT+0100"
+        "Added": "2018-08-01 17:22:14 "
       },
       {
         "Description": "Hamburger",
         "Calories": 300,
-        "Added": "Thu Aug 06 2018 17:22:14 GMT+0100"
+        "Added": "2018-08-01 17:22:14 "
       }
     ]
   },
@@ -49,22 +49,22 @@
     "Username": "Ahmed Aziz",
     "Email": "male",
     "Password": "password",
-    "Created": "2018-08-03",
+    "Created": "2018-08-03 17:22:14",
     "Meals": [
       {
         "Description": "Kebab",
         "Calories": 900,
-        "Added": "Thu Aug 02 2018 17:22:14 GMT+0100"
+        "Added": "2018-08-01 17:22:14 "
       },
       {
         "Description": "Pita shoarma",
         "Calories": 500,
-        "Added": "Thu Aug 03 2018 17:22:14 GMT+0100"
+        "Added": "2018-08-01 17:22:14 "
       },
       {
         "Description": "Tandoori chicken",
         "Calories": 700,
-        "Added": "Thu Aug 04 2018 17:22:14 GMT+0100"
+        "Added": "2018-08-01 17:22:14 "
       }
     ]
   }
