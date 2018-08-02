@@ -14,15 +14,10 @@ export class AuthService {
   decodedToken: any;
   currentUser: User;
   jwtHelper = new JwtHelperService();
-  // private photoUrl = new BehaviorSubject<string>('../../assets/user.png');
-  // currentPhotoUrl = this.photoUrl.asObservable();
+  isUser = false;
 
   constructor(private http: HttpClient,
       private jwtHelperService: JwtHelperService) { }
-
-  changeMemberPhoto(photoUrl: string) {
-    // this.photoUrl.next(photoUrl);
-  }
 
   login(model: any) {
     return this.http.post<AuthUser>(this.baseUrl + 'auth/login', model, {headers: new HttpHeaders()
@@ -35,11 +30,6 @@ export class AuthService {
             this.currentUser = user.user;
             this.decodedToken = this.jwtHelper.decodeToken(user.tokenString);
             this.userToken = user.tokenString;
-            // if (this.currentUser.photoUrl !== null) {
-            //   this.changeMemberPhoto(this.currentUser.photoUrl);
-            // } else {
-            //   this.changeMemberPhoto('../../assets/user.png');
-            // }
           }
         }));
   }
@@ -55,6 +45,7 @@ export class AuthService {
       const isExpired = this.jwtHelper.isTokenExpired(token);
       return !isExpired;
     }
-    return false;
+    // return false;
+    return true;
   }
 }

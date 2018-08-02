@@ -17,15 +17,16 @@ export const appRoutes: Routes = [
     {path: 'about', component: AboutComponent},
     {path: 'contact', component: ContactComponent},
     {path: 'signin', component: SigninComponent},
-    {path: 'mydiary', component: MyDiaryComponent},
-    {path: 'manage', component: ManageComponent},
+    {path: 'manage', component: ManageComponent,
+        runGuardsAndResolvers: 'always',
+        canActivate: [AuthGuard]},
     {path: 'register', component: RegisterComponent},
     {path: 'users', component: UsersComponent},
     {
         path: 'mydiary',
         component: MyDiaryComponent,
-        // runGuardsAndResolvers: 'always',
-        // canActivate: [AuthGuard],
+        runGuardsAndResolvers: 'always',
+        canActivate: [AuthGuard],
         children: [
             {path: 'addmeal', component: AddMealComponent },
             {path: 'listmeals', component: ListMealsComponent}

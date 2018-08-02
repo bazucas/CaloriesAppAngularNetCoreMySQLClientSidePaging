@@ -1,0 +1,6 @@
+d:\WORK\Desktop\lkAppAngular\backend\obj\Debug\netcoreapp2.1\backend.csprojAssemblyReference.cache
+d:\WORK\Desktop\lkAppAngular\backend\obj\Debug\netcoreapp2.1\backend.csproj.CoreCompileInputs.cache
+d:\WORK\Desktop\lkAppAngular\backend\obj\Debug\netcoreapp2.1\backend.RazorAssemblyInfo.cache
+d:\WORK\Desktop\lkAppAngular\backend\obj\Debug\netcoreapp2.1\backend.RazorAssemblyInfo.cs
+d:\WORK\Desktop\lkAppAngular\backend\obj\Debug\netcoreapp2.1\backend.AssemblyInfoInputs.cache
+d:\WORK\Desktop\lkAppAngular\backend\obj\Debug\netcoreapp2.1\backend.AssemblyInfo.cs
