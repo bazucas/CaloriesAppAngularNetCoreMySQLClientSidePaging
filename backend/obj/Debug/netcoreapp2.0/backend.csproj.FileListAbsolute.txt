@@ -1,0 +1,4 @@
+D:\WORK\Desktop\lkAppAngular\backend\obj\Debug\netcoreapp2.0\backend.csprojAssemblyReference.cache
+D:\WORK\Desktop\lkAppAngular\backend\obj\Debug\netcoreapp2.0\backend.csproj.CoreCompileInputs.cache
+D:\WORK\Desktop\lkAppAngular\backend\obj\Debug\netcoreapp2.0\backend.AssemblyInfoInputs.cache
+D:\WORK\Desktop\lkAppAngular\backend\obj\Debug\netcoreapp2.0\backend.AssemblyInfo.cs

@@ -4,3 +4,11 @@ d:\WORK\Desktop\lkAppAngular\backend\obj\Debug\netcoreapp2.1\backend.RazorAssemb
 d:\WORK\Desktop\lkAppAngular\backend\obj\Debug\netcoreapp2.1\backend.RazorAssemblyInfo.cs
 d:\WORK\Desktop\lkAppAngular\backend\obj\Debug\netcoreapp2.1\backend.AssemblyInfoInputs.cache
 d:\WORK\Desktop\lkAppAngular\backend\obj\Debug\netcoreapp2.1\backend.AssemblyInfo.cs
+D:\WORK\Desktop\lkAppAngular\backend\bin\Debug\netcoreapp2.1\backend.deps.json
+D:\WORK\Desktop\lkAppAngular\backend\bin\Debug\netcoreapp2.1\backend.runtimeconfig.json
+D:\WORK\Desktop\lkAppAngular\backend\bin\Debug\netcoreapp2.1\backend.runtimeconfig.dev.json
+D:\WORK\Desktop\lkAppAngular\backend\bin\Debug\netcoreapp2.1\backend.dll
+D:\WORK\Desktop\lkAppAngular\backend\bin\Debug\netcoreapp2.1\backend.pdb
+D:\WORK\Desktop\lkAppAngular\backend\obj\Debug\netcoreapp2.1\backend.RazorTargetAssemblyInfo.cache
+D:\WORK\Desktop\lkAppAngular\backend\obj\Debug\netcoreapp2.1\backend.dll
+D:\WORK\Desktop\lkAppAngular\backend\obj\Debug\netcoreapp2.1\backend.pdb
