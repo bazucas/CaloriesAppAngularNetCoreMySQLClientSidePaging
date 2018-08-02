@@ -1,1 +1,1 @@
-# KaloriesAppAngularCoreSQLServer
+# CaloriesAppAngularNetCoreMySQL
