@@ -42,6 +42,32 @@ namespace API.Data
             }
         }
 
+           public void SeedMeals()
+        {
+            if(!_context.Meals.Any())
+            {
+                // delete persisted meals in db
+            _context.Meals.RemoveRange(_context.Meals);
+            _context.SaveChanges();
+
+            // seed meals
+            var mealData = System.IO.File.ReadAllText("Data/MealSeedData.json");
+            var meals = JsonConvert.DeserializeObject<List<Meal>>(mealData);
+
+            foreach (var meal in meals) 
+            {
+                meal.Description = "";
+                meal.Added = System.DateTime.Now;
+                meal.UserId = 1;
+
+                _context.Meals.Add(meal);
+            }
+
+            _context.SaveChanges();
+            }
+        }
+
+
         private void CreatePasswordHash(string password, out byte[] passwordHash, out byte[] passwordSalt)
         {
             using(var hmac = new System.Security.Cryptography.HMACSHA512()){

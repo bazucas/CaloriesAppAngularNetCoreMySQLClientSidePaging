@@ -5,11 +5,8 @@ namespace API.Models
     public class Meal
     {
         public int Id { get; set; }
-        public string Url { get; set; }
         public string Description { get; set; }
-        public DateTime DateAdded { get; set; }
-
-        public User User { get; set; }
+        public DateTime Added { get; set; }
         public int UserId { get; set; }
     }
 }

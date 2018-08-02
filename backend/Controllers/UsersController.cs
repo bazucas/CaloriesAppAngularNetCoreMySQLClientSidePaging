@@ -12,15 +12,13 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace API.Controllers
 {
-    // action filter apply to all methods in this class, everytime a user login it updates last activity date
-    [ServiceFilter(typeof(LogUserActivity))]
     [Authorize]
     [Route("api/[controller]")]
     public class UsersController : Controller
     {
-        private readonly IDatingRepository _repo;
+        private readonly ILkRepository _repo;
         private readonly IMapper _mapper;
-        public UsersController(IDatingRepository repo, IMapper mapper)
+        public UsersController(ILkRepository repo, IMapper mapper)
         {
             _mapper = mapper;
             _repo = repo;
@@ -111,6 +109,5 @@ namespace API.Controllers
             
         //     return BadRequest("Failed to add user");
         // }
-
     }
 }

@@ -8,11 +8,11 @@ using Microsoft.EntityFrameworkCore;
 
 namespace API.Data
 {
-    public class DatingRepository : IDatingRepository
+    public class LkRepository : ILkRepository
     {
         private readonly DataContext _context;
 
-        public DatingRepository(DataContext context)
+        public LkRepository(DataContext context)
         {
             _context = context;
 
@@ -27,11 +27,6 @@ namespace API.Data
             _context.Remove(entity);
         }
 
-        public Task<Photo> GetMainPhotoForUser(int userId)
-        {
-            throw new NotImplementedException();
-        }
-
         public async Task<Meal> GetMeal(int id)
         {
             var meal = await _context.Meals.FirstOrDefaultAsync(p => p.Id == id);
@@ -39,21 +34,23 @@ namespace API.Data
             return meal;
         }
 
-        public Task<Photo> GetPhoto(int id)
+        public async Task<IEnumerable<Meal>> GetMeals(int id)
         {
-            throw new NotImplementedException();
+            var meals =  await _context.Meals.Where(m => m.Id == id).ToListAsync();
+            
+            return meals;
         }
 
         public async Task<User> GetUser(int id)
         {
-            var user = await _context.Users.Include(p => p.Photos).FirstOrDefaultAsync(u => u.Id == id);
+            var user = await _context.Users.Include(p => p.Meals).FirstOrDefaultAsync(u => u.Id == id);
 
             return user;
         }
 
-        public Task<bool> SaveAll()
+        public async Task<bool> SaveAll()
         {
-            throw new NotImplementedException();
+            return await _context.SaveChangesAsync() > 0;
         }
     }
 }

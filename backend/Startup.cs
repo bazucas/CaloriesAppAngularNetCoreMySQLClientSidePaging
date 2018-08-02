@@ -31,10 +31,8 @@ namespace API
 
         public IConfiguration Configuration { get; }
 
-        // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            // order doesn't matter
             var key = Encoding.ASCII.GetBytes(Configuration.GetSection("AppSettings:Token").Value);
             services.AddDbContext<DataContext>(x => x
                 .UseMySql(Configuration.GetConnectionString("DefaultConnection"))
@@ -52,7 +50,7 @@ namespace API
                        .AllowCredentials();
             }));
             services.AddScoped<IAuthRepository, AuthRepository>();
-            services.AddScoped<IDatingRepository, DatingRepository>();
+            services.AddScoped<ILkRepository, LkRepository>();
             services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
                 .AddJwtBearer(options => {
                     options.TokenValidationParameters = new TokenValidationParameters
@@ -63,12 +61,10 @@ namespace API
                         ValidateAudience = false
                     };
                 });
-                services.AddScoped<LogUserActivity>();
         }
 
         public void ConfigureDevelopmentServices(IServiceCollection services)
         {
-            // order doesn't matter
             var key = Encoding.ASCII.GetBytes(Configuration.GetSection("AppSettings:Token").Value);
            services.AddDbContext<DataContext>(x => x
                 .UseMySql(Configuration.GetConnectionString("DefaultConnection"))
@@ -86,7 +82,7 @@ namespace API
                        .AllowCredentials();
             }));
             services.AddScoped<IAuthRepository, AuthRepository>();
-            services.AddScoped<IDatingRepository, DatingRepository>();
+            services.AddScoped<ILkRepository, LkRepository>();
             services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
                 .AddJwtBearer(options => {
                     options.TokenValidationParameters = new TokenValidationParameters
@@ -97,13 +93,10 @@ namespace API
                         ValidateAudience = false
                     };
                 });
-                services.AddScoped<LogUserActivity>();
         }
         
-        // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IHostingEnvironment env, Seed seeder)
         {
-            // if in delelopment mode show unhandled exception page
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
@@ -126,13 +119,13 @@ namespace API
             }
 
             // reseed database if needed
-            seeder.SeedUsers();
+            // seeder.SeedUsers();
 
-            // order matters
             app.UseCors("MyPolicy");
             app.UseAuthentication();
             app.UseDefaultFiles();
             app.UseStaticFiles();
+            // routing responsabability attr to the SPA 
             app.UseMvc(routes => {
                 routes.MapSpaFallbackRoute(
                     name: "spa-fallback",

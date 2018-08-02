@@ -5,7 +5,7 @@ using API.Models;
 
 namespace API.Data
 {
-    public interface IDatingRepository
+    public interface ILkRepository
     {
         void Add<T>(T entity) where T: class;
         void Delete<T>(T entity) where T: class;
@@ -13,8 +13,8 @@ namespace API.Data
 
         Task<User> GetUser(int id);
 
-        Task<Photo> GetPhoto(int id);
+        Task<Meal> GetMeal(int id);
 
-        Task<Photo> GetMainPhotoForUser(int userId);
+        Task<IEnumerable<Meal>> GetMeals(int id);
     }
 }
