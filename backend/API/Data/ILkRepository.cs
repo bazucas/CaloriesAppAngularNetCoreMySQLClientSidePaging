@@ -13,6 +13,8 @@ namespace API.Data
 
         Task<User> GetUser(int id);
 
+        Task<PagedList<User>> GetUsers(UserParams userParams);
+
         Task<Meal> GetMeal(int id);
 
         Task<IEnumerable<Meal>> GetMeals(int id);

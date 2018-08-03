@@ -27,6 +27,22 @@ namespace API.Data
             _context.Remove(entity);
         }
 
+        public async Task<User> GetUser(int id)
+        {
+            var user = await _context.Users.Include(p => p.Meals).FirstOrDefaultAsync(u => u.Id == id);
+
+            return user;
+        }
+        
+        public async Task<PagedList<User>> GetUsers(UserParams userParams)
+        {
+            var users = _context.Users.Include(p => p.Meals).OrderBy(u => u.Username).AsQueryable();
+
+            users = users.Where(u => u.Id != userParams.Id);
+
+            return await PagedList<User>.CreateAsync(users, userParams.PageNumber, userParams.PageSize);
+        }
+
         public async Task<Meal> GetMeal(int id)
         {
             var meal = await _context.Meals.FirstOrDefaultAsync(p => p.Id == id);
@@ -39,13 +55,6 @@ namespace API.Data
             var meals =  await _context.Meals.Where(m => m.Id == id).ToListAsync();
             
             return meals;
-        }
-
-        public async Task<User> GetUser(int id)
-        {
-            var user = await _context.Users.Include(p => p.Meals).FirstOrDefaultAsync(u => u.Id == id);
-
-            return user;
         }
 
         public async Task<bool> SaveAll()
