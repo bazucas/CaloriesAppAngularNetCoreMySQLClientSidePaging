@@ -60,7 +60,6 @@ namespace API.Controllers
             if (userFromRepo == null)
                 return Unauthorized();
 
-            // generate json web token
             var tokenHandler = new JwtSecurityTokenHandler();
             var key = Encoding.ASCII.GetBytes(_config.GetSection("AppSettings:Token").Value);
             var tokenDescriptor = new SecurityTokenDescriptor
