@@ -50,20 +50,20 @@ namespace API.Controllers
         }
 
         [HttpPut("{id}")]
-        public async Task<IActionResult> UpdateUser(int id, [FromBody] UserForUpdateDto userforUpdateDto) 
+        public async Task<IActionResult> UpdateUser(int id, [FromQuery] UserForUpdateDto userforUpdateDto) 
         {
             if(!ModelState.IsValid)
                 return BadRequest(ModelState);
             
-            var currentUserId = int.Parse(User.FindFirst(ClaimTypes.NameIdentifier).Value);
+            // var currentUserId = int.Parse(User.FindFirst(ClaimTypes.NameIdentifier).Value);
 
             var userFromRepo = await _repo.GetUser(id);
 
             if(userFromRepo == null)
                 return NotFound($"Could not find user with an Id {id}");
             
-            if (currentUserId != userFromRepo.Id)
-                return Unauthorized();
+            // if (currentUserId != userFromRepo.Id)
+            //     return Unauthorized();
 
             _mapper.Map(userforUpdateDto, userFromRepo);
 
