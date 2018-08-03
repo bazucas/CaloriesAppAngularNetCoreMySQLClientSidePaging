@@ -15,8 +15,8 @@ namespace API.Data
 
         Task<PagedList<User>> GetUsers(UserParams userParams);
 
-        Task<Meal> GetMeal(int id);
+        Task<Meal> GetMeals(int id);
 
-        Task<IEnumerable<Meal>> GetMeals(int id);
+        Task<PagedList<Meal>> GetMeal(int idUser, int idMeal);
     }
 }

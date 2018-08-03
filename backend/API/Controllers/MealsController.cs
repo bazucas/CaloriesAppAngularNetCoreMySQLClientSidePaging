@@ -26,9 +26,9 @@ public class MealsController : ControllerBase
     }
 
     [HttpGet]
-    public async Task<IActionResult> GetMeals([FromQuery] UserParams userParams)
+    public async Task<IActionResult> GetMeals([FromQuery] MealParams mealParams)
     {
-        var users = await _repo.GetUsers(userParams);
+        var users = await _repo.GetMeals(mealParams);
 
         var usersToReturn = _mapper.Map<IEnumerable<UserForListDto>>(users);
 
@@ -40,7 +40,7 @@ public class MealsController : ControllerBase
     [HttpGet("{id}", Name = "GetMeal")]
     public async Task<IActionResult> GetMeal(int id)
     {
-        var user = await _repo.GetUser(id);
+        var user = await _repo.GetMeal(id);
 
         var userToReturn = _mapper.Map<UserRegistedDto>(user);
 
@@ -48,14 +48,14 @@ public class MealsController : ControllerBase
     }
 
     [HttpPut("{id}")]
-    public async Task<IActionResult> UpdateMeals(int id, [FromQuery] UserForUpdateDto userforUpdateDto)
+    public async Task<IActionResult> UpdateMeals(int id, [FromBody] MealForUpdateDto mealforUpdateDto)
     {
         if (!ModelState.IsValid)
             return BadRequest(ModelState);
 
         // var currentUserId = int.Parse(User.FindFirst(ClaimTypes.NameIdentifier).Value);
 
-        var userFromRepo = await _repo.GetUser(id);
+        var userFromRepo = await _repo.GetMeal(id);
 
         if (userFromRepo == null)
             return NotFound($"Could not find user with an Id {id}");
@@ -63,7 +63,7 @@ public class MealsController : ControllerBase
         // if (currentUserId != userFromRepo.Id)
         //     return Unauthorized();
 
-        _mapper.Map(userforUpdateDto, userFromRepo);
+        _mapper.Map(mealforUpdateDto, userFromRepo);
 
         if (await _repo.SaveAll())
             return NoContent();
