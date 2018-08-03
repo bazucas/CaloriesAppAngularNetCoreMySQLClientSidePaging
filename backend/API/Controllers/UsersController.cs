@@ -10,6 +10,7 @@ using AutoMapper;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System.Linq;
+using Newtonsoft.Json;
 
 namespace API.Controllers
 {
@@ -26,19 +27,10 @@ namespace API.Controllers
             _repo = repo;
         }
 
-        [HttpGet]
+        [HttpGet(Name = "GetUsers")]
         public async Task<IActionResult> GetUsers(UserParams userParams)
         {
-            // var currentUserId = int.Parse(User.FindFirst(ClaimTypes.NameIdentifier).Value);
-
-            // var userFromRepo = await _repo.GetUser(currentUserId);
-
-            // userParams.UserId = currentUserId;
-
-            // if (string.IsNullOrEmpty(userParams.Gender))
-            // {
-            //     userParams.Gender = userFromRepo.Gender == "male" ? "female" : "male";
-            // }
+            //var user = JsonConvert.SerializeObject(new UserParams());
 
             var users = await _repo.GetUsers(userParams);
 

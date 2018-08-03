@@ -10,9 +10,9 @@
             "request": "launch",
             "preLaunchTask": "build",
             // If you have changed target frameworks, make sure to update the program path.
-            "program": "${workspaceFolder}/backend/bin/Debug/netcoreapp2.1/backend.dll",
+            "program": "${workspaceFolder}/backend/API/bin/Debug/netcoreapp2.1/backend.dll",
             "args": [],
-            "cwd": "${workspaceFolder}/backend",
+            "cwd": "${workspaceFolder}/backend/API",
             "stopAtEntry": false,
             "internalConsoleOptions": "openOnSessionStart",
             "launchBrowser": {
