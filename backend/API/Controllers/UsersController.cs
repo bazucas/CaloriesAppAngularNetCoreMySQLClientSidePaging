@@ -9,14 +9,16 @@ using API.Models;
 using AutoMapper;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using System.Linq;
 
 namespace API.Controllers
 {
-    [Authorize]
+    // [Authorize]
     [Route("api/[controller]")]
-    public class UsersController : Controller
+    [ApiController]
+    public class UsersController : ControllerBase
     {
-        private readonly ILkRepository _repo;
+         private readonly ILkRepository _repo;
         private readonly IMapper _mapper;
         public UsersController(ILkRepository repo, IMapper mapper)
         {
@@ -47,17 +49,17 @@ namespace API.Controllers
         //     return Ok(usersToReturn);
         // }
 
-        // [HttpGet("{id}", Name = "GetUser")]
-        // public async Task<IActionResult> GetUser(int id)
-        // {
-        //     var user = await _repo.GetUser(id);
+        [HttpGet("{id}", Name = "GetUser")]
+        public async Task<IActionResult> GetUser(int id)
+        {
+            var user = await _repo.GetUser(id);
 
-        //     var userToReturn = _mapper.Map<UserForDetailedDto>(user);
+            var userToReturn = _mapper.Map<UserRegistedDto>(user);
 
-        //     return Ok(userToReturn);
-        // }
+            return Ok(userToReturn);
+        }
 
-        // // api/users/1
+        // api/users/1
         // [HttpPut("{id}")]
         // public async Task<IActionResult> UpdateUser(int id, [FromBody] UserForUpdateDto userforUpdateDto) 
         // {

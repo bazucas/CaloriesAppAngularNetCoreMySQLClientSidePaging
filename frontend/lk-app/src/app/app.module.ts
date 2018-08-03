@@ -67,7 +67,7 @@ export function tokenGetter() {
     MatFormFieldModule,
     MatInputModule,
     MatProgressSpinnerModule,
-    // FormsModule,
+    FormsModule,
     // ReactiveFormsModule,
     PaginationModule.forRoot(),
     BsDatepickerModule.forRoot(),
@@ -79,7 +79,7 @@ export function tokenGetter() {
     JwtModule.forRoot({
       config: {
         tokenGetter: tokenGetter,
-        whitelistedDomains: ['localhost:5000']
+        whitelistedDomains: ['localhost:6000']
       }
     })
   ],

@@ -125,13 +125,14 @@ namespace API
             app.UseAuthentication();
             app.UseDefaultFiles();
             app.UseStaticFiles();
+            app.UseMvc();
             // routing responsabability attr to the SPA 
-            app.UseMvc(routes => {
-                routes.MapSpaFallbackRoute(
-                    name: "spa-fallback",
-                    defaults: new { controller = "Fallback", action = "Index"}
-                );
-            });
+            // app.UseMvc(routes => {
+            //     routes.MapSpaFallbackRoute(
+            //         name: "spa-fallback",
+            //         defaults: new { controller = "Fallback", action = "Index"}
+            //     );
+            // });
         }
     }
 }

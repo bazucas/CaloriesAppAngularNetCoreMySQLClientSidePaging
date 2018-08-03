@@ -90,12 +90,6 @@ export class ListMealsComponent implements OnInit {
   }
 }
 
-
-
-
-
-
-
 export interface GithubApi {
   items: GithubIssue[];
   total_count: number;
