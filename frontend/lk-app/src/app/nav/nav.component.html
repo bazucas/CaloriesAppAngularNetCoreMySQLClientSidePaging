@@ -18,7 +18,7 @@
         <li routerLinkActive="active"><a [routerLink]="['/manage']">Manage</a></li>
         <li routerLinkActive="active"><a [routerLink]="['/signin']">Sign In</a></li>
         <li class="dropdown" dropdown>
-            <a (click)="false" class="dropdown-toggle" dropdownToggle>Welcome Luis {{authService.decodedToken?.unique_name | titlecase}} <span class="caret"></span></a>
+            <a (click)="false" class="dropdown-toggle" dropdownToggle>Welcome {{authService.decodedToken?.unique_name | titlecase}} <span class="caret"></span></a>
             <ul class="dropdown-menu" *dropdownMenu>
               <li><a [routerLink]="['/member/edit']"><i class="fa fa-user"></i> Login</a></li>
               <li role="separator" class="divider"></li>

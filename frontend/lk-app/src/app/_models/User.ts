@@ -2,7 +2,7 @@ import { Meals } from './meals';
 
 export interface User {
     id: number;
-    name: string;
+    username: string;
     role: string;
     added: string;
     maxCal: Number;

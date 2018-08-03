@@ -24,6 +24,8 @@ export class AuthService {
       .set('Content-Type', 'application/json')})
       .pipe(
         map(user => {
+          // tslint:disable-next-line:no-debugger
+          debugger;
           if (user) {
             localStorage.setItem('token', user.tokenString);
             localStorage.setItem('user', JSON.stringify(user.user));
