@@ -11841,23 +11841,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Luís\\.nuget\\packages\\": {},
+    "C:\\Users\\Luis\\.nuget\\packages\\": {},
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Luís\\Desktop\\lkAppClientSide\\CaloriesAppAngularNetCoreMySQLClientSidePaging\\backend\\API\\backend.csproj",
+      "projectUniqueName": "c:\\Users\\Luis\\Desktop\\lkapp\\CaloriesAppAngularNetCoreMySQLClientSidePaging\\backend\\API\\backend.csproj",
       "projectName": "backend",
-      "projectPath": "C:\\Users\\Luís\\Desktop\\lkAppClientSide\\CaloriesAppAngularNetCoreMySQLClientSidePaging\\backend\\API\\backend.csproj",
-      "packagesPath": "C:\\Users\\Luís\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Luís\\Desktop\\lkAppClientSide\\CaloriesAppAngularNetCoreMySQLClientSidePaging\\backend\\API\\obj\\",
+      "projectPath": "c:\\Users\\Luis\\Desktop\\lkapp\\CaloriesAppAngularNetCoreMySQLClientSidePaging\\backend\\API\\backend.csproj",
+      "packagesPath": "C:\\Users\\Luis\\.nuget\\packages\\",
+      "outputPath": "c:\\Users\\Luis\\Desktop\\lkapp\\CaloriesAppAngularNetCoreMySQLClientSidePaging\\backend\\API\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
       ],
       "configFilePaths": [
-        "C:\\Users\\Luís\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Luis\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
