@@ -15,7 +15,7 @@ using Newtonsoft.Json;
 namespace API.Controllers
 {
     // [Authorize]
-    [Route("api/[controller]")]
+    [Route("api/users/{userId}/meals")]
     [ApiController]
     public class MealsController : ControllerBase
     {
@@ -28,9 +28,9 @@ namespace API.Controllers
         }
 
         // [HttpGet]
-        // public async Task<IActionResult> GetMeals([FromQuery] MealParams mealParams)
+        // public async Task<IActionResult> GetMeals(int id)
         // {
-        //     var users = await _repo.GetMeals(mealParams);
+        //     var users = await _repo.GetMeals(int id);
 
         //     var usersToReturn = _mapper.Map<IEnumerable<UserForListDto>>(users);
 
@@ -40,7 +40,7 @@ namespace API.Controllers
         // }
 
         // [HttpGet("{id}", Name = "GetMeal")]
-        // public async Task<IActionResult> GetMeal(int id)
+        // public async Task<IActionResult> GetMeal(int id)cd
         // {
         //     var user = await _repo.GetMeal(id);
 

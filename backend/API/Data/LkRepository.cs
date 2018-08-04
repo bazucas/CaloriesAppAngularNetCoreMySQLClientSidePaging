@@ -43,20 +43,17 @@ namespace API.Data
             return await PagedList<User>.CreateAsync(users, userParams.PageNumber, userParams.PageSize);
         }
 
-        // public async Task<Meal> GetMeal(int idUser, int idMeal)
-        // {
-        //     var meal = await _context.Users.Where(u => u.Id == idUser).SelectMany(m => m.Meals).Where(m => m.Id == idMeal).FirstOrDefaultAsync();
+        public async Task<Meal> GetMeal(int idUser, int idMeal)
+        {
+            var meal = await _context.Users.Include(p => p.Meals).Where(u => u.Id == idUser).SelectMany(m => m.Meals).Where(m => m.Id == idMeal).FirstOrDefaultAsync();
             
-        //     return meal;
-        // }
+            return meal;
+        }
 
-        // public async Task<PagedList<Meal>> GetMeals(int id)
-        // {
-        //     var meals =  await _context.Meals.Where(m => m.Id == id).ToListAsync();
-            
-        //     return await PagedList<User>.CreateAsync(meals, mealParams.PageNumber, userParams.PageSize);
-
-        // }
+        public async Task<List<Meal>> GetMeals(int id)
+        {
+            return await _context.Users.Include(p => p.Meals).Where(u => u.Id == id).ToListAsync();
+        }
 
         public async Task<bool> SaveAll()
         {

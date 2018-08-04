@@ -4,15 +4,19 @@
     <h1>My Meal</h1>
     <div>
       <form #loginForm="ngForm" (ngSubmit)="addMeal()">
+        <p>Description...</p>
         <div class="form-group">
           <input type="text" placeholder="Description..." class="form-control" required name="description" [(ngModel)]="model.description">
         </div>
+        <p>Calories...</p>
         <div class="form-group">
           <input type="number" placeholder="Calories..." class="form-control" required name="cal" [(ngModel)]="model.cal">
         </div>
+        <p>Date...</p>
         <div class="form-group">
           <input type="date" class="form-control" required name="date" [(ngModel)]="model.date">
         </div>
+        <p>Time...</p>
         <div class="form-group">
           <input type="time" class="form-control" required name="time" [(ngModel)]="model.time">
         </div>
