@@ -1,7 +1,7 @@
 
   <div class="tab-panel">
     <tabset class="member-tabset" #staticTabs>
-      <tab heading="Add Meal">
+      <tab *ngIf="authService.decodedToken?.role !== 'Manager'" heading="Add Meal">
         <app-addmeal></app-addmeal>
       </tab>
       <tab heading="Show Meals">

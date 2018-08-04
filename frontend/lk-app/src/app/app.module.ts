@@ -26,7 +26,7 @@ import { ListMealsComponent } from './listmeals/listmeals.component';
 import { ManageComponent } from './manage/manage.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatTableModule, MatSortModule, MatPaginatorModule,
-  MatFormFieldModule, MatInputModule, MatProgressSpinnerModule } from '../../node_modules/@angular/material';
+  MatFormFieldModule, MatInputModule, MatProgressSpinnerModule } from '@angular/material';
 
 export function jwtOptionsFactory(tokenService) {
   return {

@@ -17,10 +17,10 @@ export const appRoutes: Routes = [
     {path: 'about', component: AboutComponent},
     {path: 'contact', component: ContactComponent},
     {path: 'signin', component: SigninComponent},
+    {path: 'register', component: RegisterComponent},
     {path: 'manage', component: ManageComponent,
         runGuardsAndResolvers: 'always',
         canActivate: [AuthGuard]},
-    {path: 'register', component: RegisterComponent},
     {path: 'users', component: UsersComponent},
     {
         path: 'mydiary',

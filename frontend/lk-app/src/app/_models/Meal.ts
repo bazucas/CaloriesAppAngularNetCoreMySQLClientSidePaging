@@ -1,5 +1,5 @@
-export interface Meals {
-    id: Number;
+export interface Meal {
+    id?: number;
     date: string;
     time: string;
     description: string;

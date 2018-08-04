@@ -1,5 +1,5 @@
-import { AlertifyService } from './../_services/alertify.service';
-import { AuthService } from './../_services/auth.service';
+import { AlertifyService } from '../_services/alertify.service';
+import { AuthService } from '../_services/auth.service';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Login } from '../_models/Login';
@@ -11,7 +11,6 @@ import { Login } from '../_models/Login';
 })
 export class SigninComponent implements OnInit {
   model: Login = {email: '', password: ''};
-  photoUrl: string;
 
   constructor(public authService: AuthService,
               private alertify: AlertifyService,
@@ -26,7 +25,7 @@ export class SigninComponent implements OnInit {
     }, error => {
       this.alertify.error('Failed to login');
     }, () => {
-      this.router.navigate(['/mydiary']);
+      this.router.navigate(['/home']);
     });
   }
 
@@ -34,7 +33,6 @@ export class SigninComponent implements OnInit {
     this.authService.userToken = null;
     this.authService.currentUser = null;
     localStorage.removeItem('token');
-    localStorage.removeItem('user');
     this.alertify.message('logged out');
     this.router.navigate(['/home']);
   }

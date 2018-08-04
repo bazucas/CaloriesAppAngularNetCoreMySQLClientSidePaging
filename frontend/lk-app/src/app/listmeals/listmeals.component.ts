@@ -1,8 +1,8 @@
-import { Meals } from './../_models/Meals';
+import { Meal } from '../_models/Meal';
 import {Component, OnInit, ViewChild} from '@angular/core';
 import {MatSort, MatTableDataSource, MatPaginator} from '@angular/material';
 
-const MEAL_DATA: Meals[] = [
+const MEAL_DATA: Meal[] = [
   {id: 1, description: 'Cozido à Portuguesa', cal: 800, date: new Date().toLocaleDateString(), time: new Date().toLocaleTimeString()},
   {id: 2, description: 'Hambúrguer', cal: 600, date: new Date().toLocaleDateString(), time: new Date().toLocaleTimeString()},
   {id: 3, description: 'Salada Cesar', cal: 200, date: new Date().toLocaleDateString(), time: new Date().toLocaleTimeString()},
@@ -24,7 +24,7 @@ export class ListMealsComponent implements OnInit {
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
   displayedColumns: string[] = ['description', 'cal', 'date', 'time', 'options'];
-  dataSource = new MatTableDataSource<Meals>(MEAL_DATA);
+  dataSource = new MatTableDataSource<Meal>(MEAL_DATA);
 
   constructor() { }
 

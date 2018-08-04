@@ -1,4 +1,4 @@
-import { Meals } from './meals';
+import { Meal } from './meal';
 
 export interface User {
     id: number;
@@ -6,5 +6,5 @@ export interface User {
     role: string;
     added: string;
     maxCal: Number;
-    meals: Meals;
+    meals: Meal[];
 }
