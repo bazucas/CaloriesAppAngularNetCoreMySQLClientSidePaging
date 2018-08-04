@@ -11847,11 +11847,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Luís\\Desktop\\lkApp\\CaloriesAppAngularNetCoreMySQL\\backend\\API\\backend.csproj",
+      "projectUniqueName": "C:\\Users\\Luís\\Desktop\\lkAppClientSide\\CaloriesAppAngularNetCoreMySQLClientSidePaging\\backend\\API\\backend.csproj",
       "projectName": "backend",
-      "projectPath": "C:\\Users\\Luís\\Desktop\\lkApp\\CaloriesAppAngularNetCoreMySQL\\backend\\API\\backend.csproj",
+      "projectPath": "C:\\Users\\Luís\\Desktop\\lkAppClientSide\\CaloriesAppAngularNetCoreMySQLClientSidePaging\\backend\\API\\backend.csproj",
       "packagesPath": "C:\\Users\\Luís\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Luís\\Desktop\\lkApp\\CaloriesAppAngularNetCoreMySQL\\backend\\API\\obj\\",
+      "outputPath": "C:\\Users\\Luís\\Desktop\\lkAppClientSide\\CaloriesAppAngularNetCoreMySQLClientSidePaging\\backend\\API\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"

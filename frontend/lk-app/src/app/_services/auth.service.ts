@@ -16,22 +16,20 @@ export class AuthService {
   jwtHelper = new JwtHelperService();
   isUser = false;
 
-  constructor(private http: HttpClient,
-      private jwtHelperService: JwtHelperService) { }
+  constructor(private http: HttpClient) { }
 
   login(model: any) {
     return this.http.post<AuthUser>(this.baseUrl + 'auth/login', model, {headers: new HttpHeaders()
       .set('Content-Type', 'application/json')})
       .pipe(
         map(user => {
-          // tslint:disable-next-line:no-debugger
-          debugger;
           if (user) {
             localStorage.setItem('token', user.tokenString);
-            localStorage.setItem('user', JSON.stringify(user.user));
-            this.currentUser = user.user;
+            // localStorage.setItem('user', JSON.stringify(user.user));
+            // this.currentUser = user.user;
             this.decodedToken = this.jwtHelper.decodeToken(user.tokenString);
-            this.userToken = user.tokenString;
+            // this.userToken = user.tokenString;
+            console.log(this.decodedToken);
           }
         }));
   }
@@ -47,7 +45,6 @@ export class AuthService {
       const isExpired = this.jwtHelper.isTokenExpired(token);
       return !isExpired;
     }
-    // return false;
-    return true;
+    return false;
   }
 }

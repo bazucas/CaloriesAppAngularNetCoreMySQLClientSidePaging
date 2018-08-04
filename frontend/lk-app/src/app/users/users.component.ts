@@ -22,7 +22,7 @@ const USER_DATA: User[] = [
 export class UsersComponent implements OnInit {
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
-  displayedColumns: string[] = ['id', 'name', 'role', 'added', 'maxCal', 'options'];
+  displayedColumns: string[] = ['id', 'username', 'role', 'added', 'maxCal', 'options'];
   dataSource = new MatTableDataSource<User>(USER_DATA);
 
   constructor() { }

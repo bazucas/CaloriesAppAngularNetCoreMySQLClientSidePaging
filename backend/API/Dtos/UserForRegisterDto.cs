@@ -17,14 +17,13 @@ namespace API.Dtos
         public string Email { get; set; }
 
         [Required]
-        public RoleEnum Role { get; set; }
+        public RoleEnum Role { get; set; } = RoleEnum.User;
 
         public DateTime Created { get; set; }  
 
         public UserForRegisterDto()
         {
             Created = DateTime.Now;
-            Role = RoleEnum.User;
         }
     }
 }
