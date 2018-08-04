@@ -45,14 +45,12 @@ namespace API.Data
 
         public async Task<Meal> GetMeal(int idUser, int idMeal)
         {
-            var meal = await _context.Users.Include(p => p.Meals).Where(u => u.Id == idUser).SelectMany(m => m.Meals).Where(m => m.Id == idMeal).FirstOrDefaultAsync();
-            
-            return meal;
+            return await _context.Users.Include(p => p.Meals).Where(u => u.Id == idUser).SelectMany(m => m.Meals).Where(m => m.Id == idMeal).FirstOrDefaultAsync();
         }
 
-        public async Task<List<Meal>> GetMeals(int id)
+        public async Task<IEnumerable<Meal>> GetMeals(int id)
         {
-            return await _context.Users.Include(p => p.Meals).Where(u => u.Id == id).ToListAsync();
+            return await _context.Users.Include(p => p.Meals).Where(u => u.Id == id).SelectMany(m => m.Meals).ToListAsync();
         }
 
         public async Task<bool> SaveAll()
