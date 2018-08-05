@@ -1,1 +1,1 @@
-# CaloriesAppAngularNetCoreMySQL# CaloriesAppAngularNetCoreMySQLClientSidePaging
+# CaloriesAppAngularNetCoreMySQLClientSidePaging

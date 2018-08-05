@@ -5,8 +5,10 @@ using System.Text;
 using System.Threading.Tasks;
 using API.Data;
 using API.Dtos;
+using API.Helpers;
 using API.Models;
 using AutoMapper;
+using Email.Services;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.IdentityModel.Tokens;
@@ -14,7 +16,7 @@ using Microsoft.IdentityModel.Tokens;
 namespace API.Controllers
 {
     [Route("api/[controller]")]
-    public class AuthController : Controller
+    public class AuthController : ControllerBase
     {
         private readonly IAuthRepository _repo;
         private readonly IConfiguration _config;
@@ -28,7 +30,7 @@ namespace API.Controllers
         }
 
         [HttpPost("register")]
-        public async Task<IActionResult> Register([FromBody]UserForRegisterDto userForRegisterDto)
+        public async Task<IActionResult> Register([FromBody] UserForRegisterDto userForRegisterDto)
         {
             if (!string.IsNullOrEmpty(userForRegisterDto.Username))
                 userForRegisterDto.Username = userForRegisterDto.Username.ToLower();
@@ -36,7 +38,6 @@ namespace API.Controllers
             if (await _repo.UserExists(userForRegisterDto.Username))
                 ModelState.AddModelError("Username", "Username already exists");
 
-            // validate request
             if (!ModelState.IsValid)
                 return BadRequest(ModelState);
 
@@ -46,11 +47,11 @@ namespace API.Controllers
 
             var userToReturn = _mapper.Map<UserRegistedDto>(createdUser);
 
-            return CreatedAtRoute("GetUser", new {controller = "Users", id = createdUser.Id}, userToReturn);
+            return CreatedAtRoute("GetUser", new { controller = "Users", id = createdUser.Id }, userToReturn);
         }
 
         [HttpPost("login")]
-        public async Task<IActionResult> Login([FromBody]UserForLoginDto userForLoginDto)
+        public async Task<IActionResult> Login([FromBody] UserForLoginDto userForLoginDto)
         {
             if (!ModelState.IsValid)
                 return BadRequest(ModelState);

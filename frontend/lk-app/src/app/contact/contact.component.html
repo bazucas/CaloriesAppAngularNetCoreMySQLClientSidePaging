@@ -2,19 +2,18 @@
   <br />
   <div class="col-md-8 col-md-offset-2">
     <h1>Contact</h1>
-    <form action="/post" method="post">
-      <input class="form-control" name="name" placeholder="Name..." />
-      <br />
-      <input class="form-control" name="phone" placeholder="E-mail..." />
-      <br />
-      <input class="form-control" name="email" placeholder="Subject..." />
-      <br />
-      <textarea class="form-control" name="text" placeholder="How can we help you?" style="height:150px;"></textarea>
-      <br />
-      <input class="btn btn-primary" type="submit" value="Submit" />
-      <br />
-      <br />
+
+    <form #contactForm="ngForm" (ngSubmit)="sendMail()">
+      <div class="form-group">
+        <input type="text" placeholder="Email..." class="form-control" required name="email" [(ngModel)]="model.email">
+      </div>
+      <div class="form-group">
+        <input type="text" placeholder="Subject..." class="form-control" required name="subject" [(ngModel)]="model.subject">
+      </div>
+      <div class="form-group">
+        <input type="textarea" placeholder="Message..." class="form-control" required name="message" [(ngModel)]="model.message">
+      </div>
+      <button type="submit" [disabled]="!contactForm.valid" class="btn btn-success">Send message</button>
     </form>
   </div>
-
 </div>

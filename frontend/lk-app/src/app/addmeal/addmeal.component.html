@@ -3,7 +3,7 @@
   <div class="col-md-8 col-md-offset-2">
     <h1>My Meal</h1>
     <div>
-      <form #loginForm="ngForm" (ngSubmit)="addMeal()">
+      <form #mealForm="ngForm" (ngSubmit)="addMeal()">
         <p>Description...</p>
         <div class="form-group">
           <input type="text" placeholder="Description..." class="form-control" required name="description" [(ngModel)]="model.description">
@@ -20,7 +20,7 @@
         <div class="form-group">
           <input type="time" class="form-control" required name="time" [(ngModel)]="model.time">
         </div>
-        <button type="submit" [disabled]="!loginForm.valid" class="btn btn-success">Add Meal</button>
+        <button type="submit" [disabled]="!mealForm.valid" class="btn btn-success">Add Meal</button>
       </form>
 
     </div>
