@@ -19,12 +19,9 @@ export class ContactComponent implements OnInit {
 
   sendMail() {
     this.userService.sendMail(this.model).subscribe(data => {
-      this.alertify.success('Logged in successfully');
-    }, error => {
-      this.alertify.error('Failed to login');
-    }, () => {
       this.alertify.success('Message sent, thank you');
+    }, error => {
+      this.alertify.error('Failed to send message');
     });
   }
-
 }

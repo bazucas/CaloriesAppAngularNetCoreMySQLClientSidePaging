@@ -11,7 +11,7 @@
         <input type="text" placeholder="Subject..." class="form-control" required name="subject" [(ngModel)]="model.subject">
       </div>
       <div class="form-group">
-        <input type="textarea" placeholder="Message..." class="form-control" required name="message" [(ngModel)]="model.message">
+        <textarea rows="4" cols="50" placeholder="Message..." class="form-control" required name="message" [(ngModel)]="model.message"></textarea>
       </div>
       <button type="submit" [disabled]="!contactForm.valid" class="btn btn-success">Send message</button>
     </form>

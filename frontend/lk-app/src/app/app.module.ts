@@ -68,7 +68,7 @@ export function tokenGetter() {
     MatInputModule,
     MatProgressSpinnerModule,
     FormsModule,
-    // ReactiveFormsModule,
+    ReactiveFormsModule,
     PaginationModule.forRoot(),
     BsDatepickerModule.forRoot(),
     BsDropdownModule.forRoot(),
