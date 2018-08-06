@@ -27,50 +27,72 @@ namespace API.Controllers
             _repo = repo;
         }
 
-        // [HttpGet]
-        // public async Task<IActionResult> GetMeals(int id)
-        // {
-        //     var users = await _repo.GetMeals(int id);
+        [HttpGet]
+        public async Task<IActionResult> GetMeals(int userId)
+        {
+            var meals = await _repo.GetMeals(userId);
 
-        //     var usersToReturn = _mapper.Map<IEnumerable<UserForListDto>>(users);
+            var mealsToReturn = _mapper.Map<IEnumerable<Meal>>(meals);
 
-        //     Response.AddPagination(users.CurrentPage, users.PageSize, users.TotalCount, users.TotalPages);
+            return Ok(mealsToReturn);
+        }
 
-        //     return Ok(usersToReturn);
-        // }
+        [HttpGet("{mealId}", Name = "GetMeals")]
+        public async Task<IActionResult> GetMeal(int userId, int mealId)
+        {
+            var meal = await _repo.GetMeal(userId, mealId);
 
-        // [HttpGet("{id}", Name = "GetMeal")]
-        // public async Task<IActionResult> GetMeal(int id)cd
-        // {
-        //     var user = await _repo.GetMeal(id);
+            var mealToReturn = _mapper.Map<Meal>(meal);
 
-        //     var userToReturn = _mapper.Map<UserRegistedDto>(user);
+            return Ok(mealToReturn);
+        }
 
-        //     return Ok(userToReturn);
-        // }
+        [HttpPost]
+        public async Task<IActionResult> AddMeal([FromBody] Meal meal)
+        {
+            _repo.Add<Meal>(meal); 
 
-        // [HttpPut("{id}")]
-        // public async Task<IActionResult> UpdateMeals(int id, [FromBody] MealForUpdateDto mealforUpdateDto)
-        // {
-        //     if (!ModelState.IsValid)
-        //         return BadRequest(ModelState);
+            if (await _repo.SaveAll())
+                return NoContent();
 
-        //     // var currentUserId = int.Parse(User.FindFirst(ClaimTypes.NameIdentifier).Value);
+            throw new Exception($"Deleting meal {meal.Id} failed");
+        }
 
-        //     var userFromRepo = await _repo.GetMeal(id);
+        [HttpPut]
+        public async Task<IActionResult> UpdateMeal(int userId, [FromBody] Meal meal)
+        {
+            if (!ModelState.IsValid)
+                return BadRequest(ModelState);
 
-        //     if (userFromRepo == null)
-        //         return NotFound($"Could not find user with an Id {id}");
+            // var currentUserId = int.Parse(User.FindFirst(ClaimTypes.NameIdentifier).Value);
 
-        //     // if (currentUserId != userFromRepo.Id)
-        //     //     return Unauthorized();
+            var mealFromRepo = await _repo.GetMeal(userId, meal.Id);
 
-        //     _mapper.Map(mealforUpdateDto, userFromRepo);
+            if (mealFromRepo == null)
+                return NotFound($"Could not find the meal with the Id: {meal.Id}");
 
-        //     if (await _repo.SaveAll())
-        //         return NoContent();
+            // if (currentUserId != userFromRepo.Id)
+            //     return Unauthorized();
 
-        //     throw new Exception($"Updating user {id} failed on save");
-        // }
+            _mapper.Map(meal, mealFromRepo);
+
+            if (await _repo.SaveAll())
+                return NoContent();
+
+            throw new Exception($"Updating meal {meal.Id} failed");
+        }
+        
+        [HttpDelete("{mealId}")]
+        public async Task<IActionResult> DeleteMeal(int userId, int mealId) 
+        { 
+            var mealFromRepo = await _repo.GetMeal(userId, mealId);
+
+            _repo.Delete<Meal>(mealFromRepo); 
+
+            if (await _repo.SaveAll())
+                return NoContent();
+
+            throw new Exception($"Deleting meal {userId} failed");
+        } 
     }
 }

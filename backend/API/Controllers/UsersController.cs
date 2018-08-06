@@ -28,39 +28,48 @@ namespace API.Controllers
         }
 
         [HttpGet]
-        public async Task<IActionResult> GetUsers([FromQuery] UserParams userParams)
+        public async Task<IActionResult> GetUsers()
         {
-            var users = await _repo.GetUsers(userParams);
+            var users = await _repo.GetUsers();
 
             var usersToReturn = _mapper.Map<IEnumerable<UserForListDto>>(users);
-
-            Response.AddPagination(users.CurrentPage, users.PageSize, users.TotalCount, users.TotalPages);
 
             return Ok(usersToReturn);
         }
 
-        [HttpGet("{id}", Name = "GetUser")]
+        [HttpGet("{userId}", Name = "GetUser")]
         public async Task<IActionResult> GetUser(int id)
         {
             var user = await _repo.GetUser(id);
 
-            var userToReturn = _mapper.Map<UserRegistedDto>(user);
+            var userToReturn = _mapper.Map<UserForListDto>(user);
 
             return Ok(userToReturn);
         }
 
-        [HttpPut("{id}")]
-        public async Task<IActionResult> UpdateUser(int id, [FromBody] UserForUpdateDto userforUpdateDto)
+        [HttpPost]
+        public async Task<IActionResult> AddUser([FromBody] Meal meal)
+        {
+            _repo.Add<Meal>(meal); 
+
+            if (await _repo.SaveAll())
+                return NoContent();
+
+            throw new Exception($"Deleting meal {meal.Id} failed");
+        }
+
+        [HttpPut("{userId}")]
+        public async Task<IActionResult> UpdateUser(int userId, [FromBody] UserForUpdateDto userforUpdateDto)
         {
             if (!ModelState.IsValid)
                 return BadRequest(ModelState);
 
             // var currentUserId = int.Parse(User.FindFirst(ClaimTypes.NameIdentifier).Value);
 
-            var userFromRepo = await _repo.GetUser(id);
+            var userFromRepo = await _repo.GetUser(userId);
 
             if (userFromRepo == null)
-                return NotFound($"Could not find user with an Id {id}");
+                return NotFound($"Could not find user with an Id {userId}");
 
             // if (currentUserId != userFromRepo.Id)
             //     return Unauthorized();
@@ -70,7 +79,20 @@ namespace API.Controllers
             if (await _repo.SaveAll())
                 return NoContent();
 
-            throw new Exception($"Updating user {id} failed on save");
+            throw new Exception($"Updating user {userId} failed");
         }
+
+        [HttpDelete("{userId}")]
+        public async Task<IActionResult> DeleteUser(int userId) 
+        { 
+            var userFromRepo = await _repo.GetUser(userId);
+
+            _repo.Delete<User>(userFromRepo); 
+
+            if (await _repo.SaveAll())
+                return NoContent();
+
+            throw new Exception($"Deleting user {userId} failed");
+        } 
     }
 }

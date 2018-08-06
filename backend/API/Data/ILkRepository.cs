@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using System.Threading.Tasks;
+using API.Dtos;
 using API.Helpers;
 using API.Models;
 
@@ -11,12 +12,18 @@ namespace API.Data
         void Delete<T>(T entity) where T: class;
         Task<bool> SaveAll();
 
-        Task<User> GetUser(int id);
 
-        Task<PagedList<User>> GetUsers(UserParams userParams);
+        Task<User> GetUser(int idUser);
 
-        // Task<Meal> GetMeals(int id);
+        Task<IEnumerable<User>> GetUsers();
 
-        // Task<PagedList<Meal>> GetMeal(int idUser, int idMeal);
+        Task<User> UpdateUser(UserForRegisterDto user);
+
+
+        Task<Meal> GetMeal(int idUser, int idMeal);
+
+        Task<IEnumerable<Meal>> GetMeals(int idUser);
+
+        Task<Meal> UpdateMeal(Meal meal);
     }
 }

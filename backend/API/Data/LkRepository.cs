@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using API.Dtos;
 using API.Helpers;
 using API.Models;
 using Microsoft.EntityFrameworkCore;
@@ -27,35 +28,28 @@ namespace API.Data
             _context.Remove(entity);
         }
 
-        public async Task<User> GetUser(int id)
+        public async Task<User> GetUser(int idUser) =>
+            // var user = await _context.Users.Include(p => p.Meals).FirstOrDefaultAsync(u => u.Id == idUser);
+            await _context.Users.FirstOrDefaultAsync(u => u.Id == idUser);
+
+        public async Task<IEnumerable<User>> GetUsers() =>
+            // return await _context.Users.Include(p => p.Meals).OrderBy(u => u.Username).ToListAsync();
+            await _context.Users.OrderBy(u => u.Username).ToListAsync();
+
+        public async Task<Meal> GetMeal(int idUser, int idMeal) => await _context.Users.Include(p => p.Meals).Where(u => u.Id == idUser).SelectMany(m => m.Meals).Where(m => m.Id == idMeal).FirstOrDefaultAsync();
+
+        public async Task<IEnumerable<Meal>> GetMeals(int idUser) => await _context.Users.Include(p => p.Meals).Where(u => u.Id == idUser).SelectMany(m => m.Meals).ToListAsync();
+
+        public Task<User> UpdateUser(UserForRegisterDto user)
         {
-            var user = await _context.Users.Include(p => p.Meals).FirstOrDefaultAsync(u => u.Id == id);
-
-            return user;
-        }
-        
-        public async Task<PagedList<User>> GetUsers(UserParams userParams)
-        {
-            var users = _context.Users.Include(p => p.Meals).OrderBy(u => u.Username).AsQueryable();
-
-            users = users.Where(u => u.Id != userParams.Id);
-
-            return await PagedList<User>.CreateAsync(users, userParams.PageNumber, userParams.PageSize);
-        }
-
-        public async Task<Meal> GetMeal(int idUser, int idMeal)
-        {
-            return await _context.Users.Include(p => p.Meals).Where(u => u.Id == idUser).SelectMany(m => m.Meals).Where(m => m.Id == idMeal).FirstOrDefaultAsync();
+            throw new NotImplementedException();
         }
 
-        public async Task<IEnumerable<Meal>> GetMeals(int id)
+        public Task<Meal> UpdateMeal(Meal meal)
         {
-            return await _context.Users.Include(p => p.Meals).Where(u => u.Id == id).SelectMany(m => m.Meals).ToListAsync();
+            throw new NotImplementedException();
         }
 
-        public async Task<bool> SaveAll()
-        {
-            return await _context.SaveChangesAsync() > 0;
-        }
+        public async Task<bool> SaveAll() => await _context.SaveChangesAsync() > 0;
     }
 }

@@ -7,6 +7,7 @@ namespace API.Dtos
     {
         public int Id { get; set; }
         public string Username { get; set; }
+        public string Email { get; set; }
         public RoleEnum Role { get; set; }
         public DateTime Created { get; set; }
     }
