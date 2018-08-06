@@ -15,7 +15,7 @@
       <!-- calories -->
 
       <div class="form-group" [ngClass]="{'has-error': registerForm.get('calories').touched && registerForm.get('calories').hasError('required')}">
-        <input class="form-control" placeholder="Calories" formControlName="calories">
+        <input type="number" class="form-control" placeholder="Calories" formControlName="calories">
         <span class="help-block" *ngIf="registerForm.get('calories').touched && registerForm.get('calories').hasError('required')">Calories are required</span>
       </div>
 
@@ -23,21 +23,21 @@
       <!-- email -->
 
       <div class="form-group" [ngClass]="{'has-error': registerForm.get('email').touched && registerForm.get('email').hasError('required')}">
-          <input class="form-control" placeholder="Email" formControlName="email">
-          <span class="help-block" *ngIf="registerForm.get('email').touched && registerForm.get('email').hasError('required')">Email is required</span>
+          <input class="form-control" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" placeholder="Email" formControlName="email">
+          <span class="help-block" *ngIf="registerForm.get('email').touched && registerForm.get('email').hasError('required')">Valid email needed</span>
         </div>
 
       <!-- password -->
 
       <div class="form-group" [ngClass]="{'has-error': registerForm.get('password').errors && registerForm.get('password').touched}">
         <input type="password" class="form-control" placeholder="Password" formControlName="password">
-        <span class="help-block" *ngIf="registerForm.get('username').hasError('required') && registerForm.get('username').touched">
+        <span class="help-block" *ngIf="registerForm.get('password').hasError('required') && registerForm.get('password').touched">
           Password is required
         </span>
-        <span class="help-block" *ngIf="registerForm.get('username').hasError('minlength') && registerForm.get('username').touched">
+        <span class="help-block" *ngIf="registerForm.get('password').hasError('minlength') && registerForm.get('password').touched">
           Password must be at least 4 characters
         </span>
-        <span class="help-block" *ngIf="registerForm.get('username').hasError('maxlength') && registerForm.get('username').touched">
+        <span class="help-block" *ngIf="registerForm.get('password').hasError('maxlength') && registerForm.get('password').touched">
           Password cannot exceed 8 characters
         </span>
       </div>

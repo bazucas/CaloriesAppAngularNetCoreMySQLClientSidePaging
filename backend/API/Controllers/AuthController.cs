@@ -35,8 +35,8 @@ namespace API.Controllers
             if (!string.IsNullOrEmpty(userForRegisterDto.Username))
                 userForRegisterDto.Username = userForRegisterDto.Username.ToLower();
 
-            if (await _repo.UserExists(userForRegisterDto.Username))
-                ModelState.AddModelError("Username", "Username already exists");
+            if (await _repo.EmailExists(userForRegisterDto.Email))
+                ModelState.AddModelError("Email", "Email already exists");
 
             if (!ModelState.IsValid)
                 return BadRequest(ModelState);
