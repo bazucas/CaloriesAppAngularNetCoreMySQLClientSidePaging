@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
-import { Meal } from '../_models/Meal';
 import { HttpClient } from '@angular/common/http';
 import { environment } from '../../environments/environment';
+import { User } from '../_models/User';
 import { Contact } from '../_models/Contact';
 
 @Injectable({
@@ -12,8 +12,20 @@ export class UserService {
 
   constructor(private http: HttpClient) { }
 
-  addMeal(id: string, meal: Meal) {
-    return this.http.post(this.baseUrl + 'users/' + id + 'meals/' + id, meal);
+  UpdateUser(userId: string, user: User) {
+    return this.http.put(this.baseUrl + 'users/' + userId, user);
+  }
+
+  DeleteUser(userId: string) {
+    return this.http.delete(this.baseUrl + 'users/' + userId);
+  }
+
+  getUsers() {
+    return this.http.get(this.baseUrl + 'users/');
+  }
+
+  getUser(userId: string) {
+    return this.http.get(this.baseUrl + 'users/' + userId);
   }
 
   sendMail(contact: Contact) {

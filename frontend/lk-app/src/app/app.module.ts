@@ -17,13 +17,11 @@ import { JwtModule } from '@auth0/angular-jwt';
 import { FooterComponent } from './footer/footer.component';
 import { SigninComponent } from './signin/signin.component';
 import { BsDropdownModule, TabsModule, BsDatepickerModule, PaginationModule, ButtonsModule } from 'ngx-bootstrap';
-import { MyDiaryComponent } from './mydiary/mydiary.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AddMealComponent } from './addmeal/addmeal.component';
 import { PageNotFoundComponent } from './pagenotfound/pagenotfound.component';
 import { UsersComponent } from './users/users.component';
 import { ListMealsComponent } from './listmeals/listmeals.component';
-import { ManageComponent } from './manage/manage.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatTableModule, MatSortModule, MatPaginatorModule,
   MatFormFieldModule, MatInputModule, MatProgressSpinnerModule } from '@angular/material';
@@ -50,12 +48,10 @@ export function tokenGetter() {
     RegisterComponent,
     FooterComponent,
     SigninComponent,
-    MyDiaryComponent,
     AddMealComponent,
     PageNotFoundComponent,
     UsersComponent,
-    ListMealsComponent,
-    ManageComponent
+    ListMealsComponent
   ],
   imports: [
     BrowserModule,

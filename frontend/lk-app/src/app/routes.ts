@@ -1,9 +1,7 @@
 import { UsersComponent } from './users/users.component';
 import { ListMealsComponent } from './listmeals/listmeals.component';
-import { ManageComponent } from './manage/manage.component';
 import { PageNotFoundComponent } from './pagenotfound/pagenotfound.component';
 import { RegisterComponent } from './register/register.component';
-import { MyDiaryComponent } from './mydiary/mydiary.component';
 import { SigninComponent } from './signin/signin.component';
 import { ContactComponent } from './contact/contact.component';
 import { AboutComponent } from './about/about.component';
@@ -18,20 +16,9 @@ export const appRoutes: Routes = [
     {path: 'contact', component: ContactComponent},
     {path: 'signin', component: SigninComponent},
     {path: 'register', component: RegisterComponent},
-    {path: 'manage', component: ManageComponent,
-        runGuardsAndResolvers: 'always',
-        canActivate: [AuthGuard]},
-    {path: 'users', component: UsersComponent},
-    {
-        path: 'mydiary',
-        component: MyDiaryComponent,
-        runGuardsAndResolvers: 'always',
-        canActivate: [AuthGuard],
-        children: [
-            {path: 'addmeal', component: AddMealComponent },
-            {path: 'listmeals', component: ListMealsComponent}
-        ]
-    },
+    {path: 'users', component: UsersComponent, canActivate: [AuthGuard]},
+    {path: 'addmeal', component: AddMealComponent, canActivate: [AuthGuard]},
+    {path: 'listmeals', component: ListMealsComponent, canActivate: [AuthGuard]},
     // {
     //     path: '',
     //     runGuardsAndResolvers: 'always',

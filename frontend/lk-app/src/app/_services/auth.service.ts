@@ -3,7 +3,6 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { User } from '../_models/User';
 import { Injectable } from '@angular/core';
 import { map } from 'rxjs/operators';
-import { BehaviorSubject } from 'rxjs';
 import { JwtHelperService } from '@auth0/angular-jwt';
 import { AuthUser } from '../_models/authUser';
 import { Login } from '../_models/Login';

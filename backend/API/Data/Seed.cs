@@ -17,7 +17,7 @@ namespace API.Data
         {
             if(!_context.Users.Any())
             {
-                // delete persisted users in db
+            // delete persisted users in db
             _context.Users.RemoveRange(_context.Users);
             _context.SaveChanges();
 

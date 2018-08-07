@@ -48,8 +48,10 @@ namespace API.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> AddMeal([FromBody] Meal meal)
+        public async Task<IActionResult> AddMeal(int userId, [FromBody] Meal meal)
         {
+            meal.UserId = userId;
+
             _repo.Add<Meal>(meal); 
 
             if (await _repo.SaveAll())

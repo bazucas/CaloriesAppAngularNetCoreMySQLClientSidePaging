@@ -1,18 +1,9 @@
-import { Meal } from '../_models/Meal';
+import { AuthService } from './../_services/auth.service';
 import {Component, OnInit, ViewChild} from '@angular/core';
 import {MatSort, MatTableDataSource, MatPaginator} from '@angular/material';
-
-const MEAL_DATA: Meal[] = [
-  {id: 1, description: 'Cozido à Portuguesa', cal: 800, date: new Date().toLocaleDateString(), time: new Date().toLocaleTimeString()},
-  {id: 2, description: 'Hambúrguer', cal: 600, date: new Date().toLocaleDateString(), time: new Date().toLocaleTimeString()},
-  {id: 3, description: 'Salada Cesar', cal: 200, date: new Date().toLocaleDateString(), time: new Date().toLocaleTimeString()},
-  {id: 4, description: 'Hot Dog', cal: 400, date: new Date().toLocaleDateString(), time: new Date().toLocaleTimeString()},
-  {id: 5, description: 'Pizza', cal: 700, date: new Date().toLocaleDateString(), time: new Date().toLocaleTimeString()},
-  {id: 6, description: 'Arroz de pato', cal: 400, date: new Date().toLocaleDateString(), time: new Date().toLocaleTimeString()},
-  {id: 7, description: 'Perna de perú assada', cal: 600, date: new Date().toLocaleDateString(), time: new Date().toLocaleTimeString()},
-  {id: 8, description: 'Coelho à caçador', cal: 500, date: new Date().toLocaleDateString(), time: new Date().toLocaleTimeString()},
-  {id: 9, description: 'Bucha', cal: 9999, date: new Date().toLocaleDateString(), time: new Date().toLocaleTimeString()}
-];
+import { MealService } from '../_services/meal.service';
+import { AlertifyService } from '../_services/alertify.service';
+import { ActivatedRoute } from '../../../node_modules/@angular/router';
 
 @Component({
   selector: 'app-listmeals',
@@ -23,21 +14,40 @@ const MEAL_DATA: Meal[] = [
 export class ListMealsComponent implements OnInit {
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
-  displayedColumns: string[] = ['description', 'cal', 'date', 'time', 'options'];
-  dataSource = new MatTableDataSource<Meal>(MEAL_DATA);
+  displayedColumns: string[] = ['description', 'calories', 'added', 'options'];
+  dataSource;
+  userId: string;
 
-  constructor() { }
+  constructor(private mealService: MealService,
+    private authService: AuthService,
+    private alertify: AlertifyService,
+    private activeRoute: ActivatedRoute) { }
 
   ngOnInit() {
-    this.dataSource.sort = this.sort;
-    this.dataSource.paginator = this.paginator;
+    this.userId = this.authService.decodedToken.nameid;
+    this.getAllMeals(this.userId);
   }
 
   applyFilter(filterValue: string) {
     this.dataSource.filter = filterValue.trim().toLowerCase();
   }
 
-  alertt(val: string) {
-    alert(val);
+  getAllMeals(mealId: string) {
+    this.mealService.getMeals(mealId).subscribe(data => {
+      console.log(data);
+      this.dataSource = new MatTableDataSource(<any>data);
+      this.dataSource.sort = this.sort;
+      this.dataSource.paginator = this.paginator;
+    }, error => {
+      this.alertify.error('Failed to get all users');
+    });
+  }
+
+  updateMeal(mealId: string) {
+    alert('update meal ' + mealId);
+  }
+
+  deleteMeal(mealId: string) {
+    alert('delete meal ' + mealId);
   }
 }

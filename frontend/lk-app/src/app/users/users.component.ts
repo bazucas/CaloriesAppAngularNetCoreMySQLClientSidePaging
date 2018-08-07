@@ -1,18 +1,7 @@
+import { AlertifyService } from './../_services/alertify.service';
+import { UserService } from './../_services/user.service';
 import {Component, OnInit, ViewChild} from '@angular/core';
 import {MatSort, MatTableDataSource, MatPaginator} from '@angular/material';
-import { User } from '../_models/User';
-
-const USER_DATA: User[] = [
-  {id: 1, username: 'Luís Silva', email: '', role: 'user', added: new Date().toLocaleString(), maxCal: 2000, meals: null },
-  {id: 2, username: 'Rúben Santos', email: '', role: 'user', added: new Date().toLocaleString(), maxCal: 1800, meals: null },
-  {id: 3, username: 'João António', email: '', role: 'user', added: new Date().toLocaleString(), maxCal: 2000, meals: null },
-  {id: 4, username: 'Pedro Simões', email: '', role: 'admin', added: new Date().toLocaleString(), maxCal: 1500, meals: null },
-  {id: 5, username: 'Paulo Fernandes', email: '', role: 'user', added: new Date().toLocaleString(), maxCal: 1800, meals: null },
-  {id: 6, username: 'João Areias', email: '', role: 'user', added: new Date().toLocaleString(), maxCal: 1600, meals: null },
-  {id: 7, username: 'Marília Inácio', email: '', role: 'manager', added: new Date().toLocaleString(), maxCal: 1500, meals: null },
-  {id: 8, username: 'Luís Inácio', email: '', role: 'manager', added: new Date().toLocaleString(), maxCal: 2000, meals: null },
-  {id: 9, username: 'Rui Pedro', email: '', role: 'user', added: new Date().toLocaleString(), maxCal: 1800, meals: null }
-];
 
 @Component({
   selector: 'app-users',
@@ -22,17 +11,46 @@ const USER_DATA: User[] = [
 export class UsersComponent implements OnInit {
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
-  displayedColumns: string[] = ['id', 'username', 'role', 'added', 'maxCal', 'options'];
-  dataSource = new MatTableDataSource<User>(USER_DATA);
+  displayedColumns: string[] = ['id', 'username', 'role', 'created', 'maxCal', 'options'];
+  dataSource;
 
-  constructor() { }
+  constructor(private userService: UserService,
+    private alertify: AlertifyService) { }
 
   ngOnInit() {
-    this.dataSource.sort = this.sort;
-    this.dataSource.paginator = this.paginator;
+    this.getAllUsers();
   }
 
   applyFilter(filterValue: string) {
     this.dataSource.filter = filterValue.trim().toLowerCase();
+  }
+
+  getAllUsers() {
+    this.userService.getUsers().subscribe(data => {
+      console.log(data);
+      this.dataSource = new MatTableDataSource(<any>data);
+      this.dataSource.sort = this.sort;
+      this.dataSource.paginator = this.paginator;
+    }, error => {
+      this.alertify.error('Failed to get all users');
+    });
+  }
+
+  getRole(role: number): string {
+    if (role === 0) {
+      return 'Admin';
+    } else if (role === 1) {
+      return 'Manager';
+    } else {
+      return 'User';
+    }
+  }
+
+  updateUser(userId: string) {
+    alert('update user ' + userId);
+  }
+
+  deleteUser(userId: string) {
+    alert('delete user ' + userId);
   }
 }
