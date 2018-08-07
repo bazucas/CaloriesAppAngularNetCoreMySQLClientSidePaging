@@ -38,24 +38,13 @@ namespace API.Controllers
         }
 
         [HttpGet("{userId}", Name = "GetUser")]
-        public async Task<IActionResult> GetUser(int id)
+        public async Task<IActionResult> GetUser(int userId)
         {
-            var user = await _repo.GetUser(id);
+            var user = await _repo.GetUser(userId);
 
             var userToReturn = _mapper.Map<UserForListDto>(user);
 
             return Ok(userToReturn);
-        }
-
-        [HttpPost]
-        public async Task<IActionResult> AddUser([FromBody] Meal meal)
-        {
-            _repo.Add<Meal>(meal); 
-
-            if (await _repo.SaveAll())
-                return NoContent();
-
-            throw new Exception($"Deleting meal {meal.Id} failed");
         }
 
         [HttpPut("{userId}")]

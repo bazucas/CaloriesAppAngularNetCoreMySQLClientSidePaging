@@ -13,42 +13,19 @@ namespace API.Data
     {
         private readonly DataContext _context;
 
-        public LkRepository(DataContext context)
-        {
-            _context = context;
+        public LkRepository(DataContext context) => _context = context;
+        
+        public void Add<T>(T entity) where T : class => _context.Add(entity);
 
-        }
-        public void Add<T>(T entity) where T : class
-        {
-            _context.Add(entity);
-        }
+        public void Delete<T>(T entity) where T : class => _context.Remove(entity);
 
-        public void Delete<T>(T entity) where T : class
-        {
-            _context.Remove(entity);
-        }
+        public async Task<User> GetUser(int idUser) => await _context.Users.FirstOrDefaultAsync(u => u.Id == idUser);
 
-        public async Task<User> GetUser(int idUser) =>
-            // var user = await _context.Users.Include(p => p.Meals).FirstOrDefaultAsync(u => u.Id == idUser);
-            await _context.Users.FirstOrDefaultAsync(u => u.Id == idUser);
-
-        public async Task<IEnumerable<User>> GetUsers() =>
-            // return await _context.Users.Include(p => p.Meals).OrderBy(u => u.Username).ToListAsync();
-            await _context.Users.OrderBy(u => u.Username).ToListAsync();
+        public async Task<IEnumerable<User>> GetUsers() => await _context.Users.OrderBy(u => u.Username).ToListAsync();
 
         public async Task<Meal> GetMeal(int idUser, int idMeal) => await _context.Users.Include(p => p.Meals).Where(u => u.Id == idUser).SelectMany(m => m.Meals).Where(m => m.Id == idMeal).FirstOrDefaultAsync();
 
         public async Task<IEnumerable<Meal>> GetMeals(int idUser) => await _context.Users.Include(p => p.Meals).Where(u => u.Id == idUser).SelectMany(m => m.Meals).ToListAsync();
-
-        public Task<User> UpdateUser(UserForRegisterDto user)
-        {
-            throw new NotImplementedException();
-        }
-
-        public Task<Meal> UpdateMeal(Meal meal)
-        {
-            throw new NotImplementedException();
-        }
 
         public async Task<bool> SaveAll() => await _context.SaveChangesAsync() > 0;
     }
