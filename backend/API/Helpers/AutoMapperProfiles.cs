@@ -11,7 +11,15 @@ namespace API.Helpers
         {
             CreateMap<User, UserForListDto>();
             
+            CreateMap<User, UserRegistedDto>();
+
+            CreateMap<Meal, MealRegistedDto>();
+
             CreateMap<UserForUpdateDto, User>();
+
+            CreateMap<MealForCreationDto, Meal>();
+
+            CreateMap<Meal, MealForReturnDto>();
 
             CreateMap<UserForRegisterDto, User>();
         }
