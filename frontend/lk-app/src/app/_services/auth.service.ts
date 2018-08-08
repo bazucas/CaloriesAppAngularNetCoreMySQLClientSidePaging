@@ -25,7 +25,10 @@ export class AuthService {
         map(user => {
           if (user) {
             localStorage.setItem('token', user.tokenString);
+            localStorage.setItem('user', JSON.stringify(user.user));
+            this.currentUser = user.user;
             this.decodedToken = this.jwtHelper.decodeToken(user.tokenString);
+            this.userToken = user.tokenString;
           }
         }));
   }
