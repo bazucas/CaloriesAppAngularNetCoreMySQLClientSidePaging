@@ -50,7 +50,14 @@ export class UsersComponent implements OnInit {
     alert('update user ' + userId);
   }
 
-  deleteUser(userId: string) {
-    alert('delete user ' + userId);
+  deleteUser(userId: string, username: string) {
+    if (confirm('Are you sure you want to delete the user ' + username + ' ?')) {
+      this.userService.DeleteUser(userId).subscribe(data => {
+        this.alertify.success('User ' + username + ' successfuly deleted');
+        this.getAllUsers();
+      }, error => {
+        this.alertify.error('Failed to delete user ' + username);
+      });
+    }
   }
 }

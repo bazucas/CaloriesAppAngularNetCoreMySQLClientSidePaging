@@ -37,7 +37,7 @@
     <th mat-header-cell *matHeaderCellDef mat-sort-header> Options </th>
     <td mat-cell *matCellDef="let element"> 
       <img (click)="updateUser(element.id)" src="../../assets/pencil.png" alt="pencil"> 
-      <img (click)="deleteUser(element.id)" src="../../assets/bin.png" alt="bin"> 
+      <img (click)="deleteUser(element.id, element.username)" src="../../assets/bin.png" alt="bin"> 
     </td>
   </ng-container>
 

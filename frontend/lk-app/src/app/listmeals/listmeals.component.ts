@@ -1,6 +1,6 @@
 import { AuthService } from './../_services/auth.service';
-import {Component, OnInit, ViewChild} from '@angular/core';
-import {MatSort, MatTableDataSource, MatPaginator} from '@angular/material';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { MatSort, MatTableDataSource, MatPaginator } from '@angular/material';
 import { MealService } from '../_services/meal.service';
 import { AlertifyService } from '../_services/alertify.service';
 import { ActivatedRoute } from '../../../node_modules/@angular/router';
@@ -43,11 +43,18 @@ export class ListMealsComponent implements OnInit {
     });
   }
 
-  updateMeal(mealId: string) {
-    alert('update meal ' + mealId);
+  updateMeal(userId: string, mealId: string) {
+    console.log('Implement delete functionality here');
   }
 
-  deleteMeal(mealId: string) {
-    alert('delete meal ' + mealId);
+  deleteMeal(userId: string, mealId: string, description: string) {
+    if (confirm('Are you sure you want to delete the meal ' + description + '?')) {
+      this.mealService.DeleteMeal(userId, mealId).subscribe(data => {
+        this.alertify.success('Meal ' + description + ' successfuly deleted');
+        this.getAllMeals(this.userId);
+      }, error => {
+        this.alertify.error('Failed to delete meal ' + description);
+      });
+    }
   }
 }
