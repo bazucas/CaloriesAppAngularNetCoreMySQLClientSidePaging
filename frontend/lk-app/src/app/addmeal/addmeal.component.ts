@@ -11,7 +11,7 @@ import { MealService } from '../_services/meal.service';
   styleUrls: ['./addmeal.component.css']
 })
 export class AddMealComponent implements OnInit {
-  model: Meal = {description: '', cal: 0, date: '', time: ''};
+  model: Meal = {description: '', calories: 0, added: new Date()};
   mealAdded: boolean;
   userId: string;
 

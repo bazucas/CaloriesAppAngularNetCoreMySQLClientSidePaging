@@ -12,6 +12,7 @@ export class MealService {
   constructor(private http: HttpClient) { }
 
   addMeal(userId: string, meal: Meal) {
+    debugger;
     return this.http.post(this.baseUrl + 'users/' + userId + '/meals/', meal);
   }
 

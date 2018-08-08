@@ -1,12 +1,13 @@
+<div class="listing">
   <br />
-    <h1>Show Meals</h1>
-    <br/>
+  <h1>Show Meals</h1>
+  <br/>
 
   <mat-form-field>
     <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
   </mat-form-field>
 
-  <table multiTemplateDataRows  matSort mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+  <table multiTemplateDataRows matSort mat-table [dataSource]="dataSource" class="mat-elevation-z8">
 
     <ng-container matColumnDef="description">
       <th mat-header-cell *matHeaderCellDef mat-sort-header> Description </th>
@@ -20,14 +21,14 @@
 
     <ng-container matColumnDef="added">
       <th mat-header-cell *matHeaderCellDef mat-sort-header> Date </th>
-      <td mat-cell *matCellDef="let element"> {{element.added | date}} </td>
+      <td mat-cell *matCellDef="let element"> {{element.added | date:'medium'}} </td>
     </ng-container>
 
     <ng-container matColumnDef="options">
       <th mat-header-cell *matHeaderCellDef mat-sort-header> Options </th>
-      <td mat-cell *matCellDef="let element"> 
-        <img (click)="alertt('edit')" src="../../assets/pencil.png" alt="pencil"> 
-        <img (click)="alertt('delete')" src="../../assets/bin.png" alt="bin"> 
+      <td mat-cell *matCellDef="let element">
+        <img (click)="alertt('edit')" src="../../assets/pencil.png" alt="pencil">
+        <img (click)="alertt('delete')" src="../../assets/bin.png" alt="bin">
       </td>
     </ng-container>
 
@@ -35,3 +36,4 @@
     <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
   </table>
   <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
+</div>

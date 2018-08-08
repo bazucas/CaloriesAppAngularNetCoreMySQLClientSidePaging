@@ -10,15 +10,11 @@
         </div>
         <p>Calories...</p>
         <div class="form-group">
-          <input type="number" placeholder="Calories..." class="form-control" required name="cal" [(ngModel)]="model.cal">
+          <input type="number" placeholder="Calories..." class="form-control" required name="calories" [(ngModel)]="model.calories">
         </div>
         <p>Date...</p>
         <div class="form-group">
-          <input type="date" class="form-control" required name="date" [(ngModel)]="model.date">
-        </div>
-        <p>Time...</p>
-        <div class="form-group">
-          <input type="time" class="form-control" required name="time" [(ngModel)]="model.time">
+          <input type="datetime" class="form-control" required name="date" [(ngModel)]="model.date">
         </div>
         <button type="submit" [disabled]="!mealForm.valid" class="btn btn-success">Add Meal</button>
       </form>
