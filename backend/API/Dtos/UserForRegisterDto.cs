@@ -17,6 +17,9 @@ namespace API.Dtos
         public string Email { get; set; }
 
         [Required]
+        public int Calories { get; set; }
+
+        [Required]
         public RoleEnum Role { get; set; } = RoleEnum.User;
 
         public DateTime Created { get; set; }  

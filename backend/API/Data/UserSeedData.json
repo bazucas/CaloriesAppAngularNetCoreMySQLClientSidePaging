@@ -1,8 +1,10 @@
 [
   {
     "Username": "Sarah",
-    "Email": "female",
-    "Password": "password",
+    "Email": "sarah@gmail.pt",
+    "Calories": 2000,
+    "Role": 2,
+    "Password": "pass",
     "Created": "2018-08-01 17:22:14",
     "Meals": [
       {
@@ -24,8 +26,10 @@
   },
   {
     "Username": "Freda",
-    "Email": "female",
-    "Password": "password",
+    "Email": "freda@gmail.pt",
+    "Calories": 2200,    
+    "Role": 2,
+    "Password": "pass",
     "Created": "2018-08-01 17:22:14",
     "Meals": [
       {
@@ -46,9 +50,84 @@
     ]
   },
   {
-    "Username": "Ahmed Aziz",
-    "Email": "male",
-    "Password": "password",
+    "Username": "Ahmed",
+    "Email": "ahmed@gmail.pt",
+    "Calories": 2100,
+    "Role": 2,
+    "Password": "pass",
+    "Created": "2018-08-03 17:22:14",
+    "Meals": [
+      {
+        "Description": "Kebab",
+        "Calories": 900,
+        "Added": "2018-08-01 17:22:14 "
+      },
+      {
+        "Description": "Pita shoarma",
+        "Calories": 500,
+        "Added": "2018-08-01 17:22:14 "
+      },
+      {
+        "Description": "Tandoori chicken",
+        "Calories": 700,
+        "Added": "2018-08-01 17:22:14 "
+      }
+    ]
+  },
+  {
+    "Username": "Admin",
+    "Email": "admin@gmail.pt",
+    "Role": 0,
+    "Password": "admin",
+    "Created": "2018-08-03 17:22:14",
+    "Meals": [
+      {
+        "Description": "Kebab",
+        "Calories": 900,
+        "Added": "2018-08-01 17:22:14 "
+      },
+      {
+        "Description": "Pita shoarma",
+        "Calories": 500,
+        "Added": "2018-08-01 17:22:14 "
+      },
+      {
+        "Description": "Tandoori chicken",
+        "Calories": 700,
+        "Added": "2018-08-01 17:22:14 "
+      }
+    ]
+  },
+  {
+    "Username": "Manager",
+    "Email": "manager@gmail.pt",
+    "Role": 1,
+    "Password": "manager",
+    "Created": "2018-08-03 17:22:14",
+    "Meals": [
+      {
+        "Description": "Kebab",
+        "Calories": 900,
+        "Added": "2018-08-01 17:22:14 "
+      },
+      {
+        "Description": "Pita shoarma",
+        "Calories": 500,
+        "Added": "2018-08-01 17:22:14 "
+      },
+      {
+        "Description": "Tandoori chicken",
+        "Calories": 700,
+        "Added": "2018-08-01 17:22:14 "
+      }
+    ]
+  },
+  {
+    "Username": "User",
+    "Email": "user@gmail.com",
+    "Calories": 2000,
+    "Role": 2,
+    "Password": "user",
     "Created": "2018-08-03 17:22:14",
     "Meals": [
       {
