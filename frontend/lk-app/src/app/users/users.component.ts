@@ -15,7 +15,7 @@ export class UsersComponent implements OnInit {
   dataSource;
 
   placement = 'bottom';
-  popoverTitle = 'Are you sure you want to delete this meal?';
+  popoverTitle = 'Are you sure you want to delete this user?';
   // popoverMessage = 'Are you really <b>sure</b> you want to do this?';
   confirmText = 'Yes <i class="glyphicon glyphicon-ok"></i>';
   cancelText = 'No <i class="glyphicon glyphicon-remove"></i>';
