@@ -7,5 +7,6 @@ export interface User {
     role: string;
     added: string;
     maxCal: Number;
+    dailyCal: Number;
     meals: Meal[];
 }

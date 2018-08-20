@@ -1,5 +1,7 @@
 using System;
+using System.Collections.Generic;
 using API.Enum;
+using API.Models;
 
 namespace API.Dtos
 {
@@ -11,5 +13,6 @@ namespace API.Dtos
         public int Calories { get; set; }
         public RoleEnum Role { get; set; }
         public DateTime Created { get; set; }
+        public ICollection<Meal> Meals { get; set; }
     }
 }

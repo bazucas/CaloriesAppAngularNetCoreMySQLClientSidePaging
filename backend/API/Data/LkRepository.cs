@@ -19,7 +19,8 @@ namespace API.Data
 
         public void Delete<T>(T entity) where T : class => _context.Remove(entity);
 
-        public async Task<User> GetUser(int idUser) => await _context.Users.FirstOrDefaultAsync(u => u.Id == idUser);
+        public async Task<User> GetUser(int idUser) => await _context.Users.Include(p => p.Meals).Where(m => m.Created > DateTime.Now.AddDays(-1) && m.Created < DateTime.Now.AddDays(1)).FirstOrDefaultAsync(u => u.Id == idUser);
+        // public async Task<User> GetUser(int idUser) => await _context.Users.Include(p => p.Meals).FirstOrDefaultAsync(u => u.Id == idUser);
 
         public async Task<IEnumerable<User>> GetUsers() => await _context.Users.OrderBy(u => u.Username).ToListAsync();
 

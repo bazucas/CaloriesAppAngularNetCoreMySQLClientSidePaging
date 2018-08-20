@@ -3,16 +3,6 @@
   <h1>Show Meals</h1>
   <br/>
 
-
-  <span>
-    <button mwlConfirmationPopover [popoverTitle]="popoverTitle" [popoverMessage]="popoverMessage" [confirmText]="confirmText"
-      [cancelText]="cancelText" [placement]="placement" (confirm)="deleteMeal(element.userId, element.id, element.description)" (cancel)="click(2)" confirmButtonType="danger"
-      cancelButtonType="default" (click)="confirmClicked = false; cancelClicked = false" [appendToBody]="true">
-      
-    </button>
-    &ngsp;
-  </span>
-
   <mat-form-field>
     <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
   </mat-form-field>

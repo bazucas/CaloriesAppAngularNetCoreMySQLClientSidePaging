@@ -10,6 +10,7 @@ import { Router } from '@angular/router';
 })
 export class NavComponent implements OnInit {
   model: any = {};
+  calories = 1500;
 
   constructor(public authService: AuthService,
               private alertify: AlertifyService,
