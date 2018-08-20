@@ -18,6 +18,14 @@ export class ListMealsComponent implements OnInit {
   dataSource;
   userId: string;
 
+  placement = 'bottom';
+  popoverTitle = 'Are you sure you want to delete this meal?';
+  // popoverMessage = 'Are you really <b>sure</b> you want to do this?';
+  confirmText = 'Yes <i class="glyphicon glyphicon-ok"></i>';
+  cancelText = 'No <i class="glyphicon glyphicon-remove"></i>';
+  // confirmClicked = false;
+  // cancelClicked = false;
+
   constructor(private mealService: MealService,
     private authService: AuthService,
     private alertify: AlertifyService,
@@ -26,6 +34,10 @@ export class ListMealsComponent implements OnInit {
   ngOnInit() {
     this.userId = this.authService.decodedToken.nameid;
     this.getAllMeals(this.userId);
+  }
+
+  click(i) {
+    alert(i);
   }
 
   applyFilter(filterValue: string) {
@@ -44,17 +56,26 @@ export class ListMealsComponent implements OnInit {
   }
 
   updateMeal(userId: string, mealId: string) {
-    console.log('Implement delete functionality here');
+    console.log('Implement update functionality here');
   }
 
   deleteMeal(userId: string, mealId: string, description: string) {
-    if (confirm('Are you sure you want to delete the meal ' + description + '?')) {
-      this.mealService.DeleteMeal(userId, mealId).subscribe(data => {
-        this.alertify.success('Meal ' + description + ' successfuly deleted');
-        this.getAllMeals(this.userId);
-      }, error => {
-        this.alertify.error('Failed to delete meal ' + description);
-      });
-    }
+    this.mealService.DeleteMeal(userId, mealId).subscribe(data => {
+      this.alertify.success('Meal ' + description + ' successfuly deleted');
+      this.getAllMeals(this.userId);
+    }, error => {
+      this.alertify.error('Failed to delete meal ' + description);
+    });
   }
+
+  // deleteMeal(userId: string, mealId: string, description: string) {
+  //   if (confirm('Are you sure you want to delete the meal ' + description + '?')) {
+  //     this.mealService.DeleteMeal(userId, mealId).subscribe(data => {
+  //       this.alertify.success('Meal ' + description + ' successfuly deleted');
+  //       this.getAllMeals(this.userId);
+  //     }, error => {
+  //       this.alertify.error('Failed to delete meal ' + description);
+  //     });
+  //   }
+  // }
 }

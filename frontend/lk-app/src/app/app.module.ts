@@ -25,6 +25,8 @@ import { ListMealsComponent } from './listmeals/listmeals.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatTableModule, MatSortModule, MatPaginatorModule,
   MatFormFieldModule, MatInputModule, MatProgressSpinnerModule } from '@angular/material';
+import { ConfirmationPopoverModule } from 'angular-confirmation-popover';
+
 
 export function jwtOptionsFactory(tokenService) {
   return {
@@ -65,6 +67,9 @@ export function tokenGetter() {
     MatProgressSpinnerModule,
     FormsModule,
     ReactiveFormsModule,
+    ConfirmationPopoverModule.forRoot({
+      confirmButtonType: 'danger' // set defaults here
+    }),
     PaginationModule.forRoot(),
     BsDatepickerModule.forRoot(),
     BsDropdownModule.forRoot(),

@@ -1,7 +1,7 @@
 import { AlertifyService } from './../_services/alertify.service';
 import { UserService } from './../_services/user.service';
-import {Component, OnInit, ViewChild} from '@angular/core';
-import {MatSort, MatTableDataSource, MatPaginator} from '@angular/material';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { MatSort, MatTableDataSource, MatPaginator } from '@angular/material';
 
 @Component({
   selector: 'app-users',
@@ -13,6 +13,14 @@ export class UsersComponent implements OnInit {
   @ViewChild(MatSort) sort: MatSort;
   displayedColumns: string[] = ['id', 'username', 'role', 'created', 'maxCal', 'options'];
   dataSource;
+
+  placement = 'bottom';
+  popoverTitle = 'Are you sure you want to delete this meal?';
+  // popoverMessage = 'Are you really <b>sure</b> you want to do this?';
+  confirmText = 'Yes <i class="glyphicon glyphicon-ok"></i>';
+  cancelText = 'No <i class="glyphicon glyphicon-remove"></i>';
+  // confirmClicked = false;
+  // cancelClicked = false;
 
   constructor(private userService: UserService,
     private alertify: AlertifyService) { }
@@ -51,13 +59,11 @@ export class UsersComponent implements OnInit {
   }
 
   deleteUser(userId: string, username: string) {
-    if (confirm('Are you sure you want to delete the user ' + username + ' ?')) {
-      this.userService.DeleteUser(userId).subscribe(data => {
-        this.alertify.success('User ' + username + ' successfuly deleted');
-        this.getAllUsers();
-      }, error => {
-        this.alertify.error('Failed to delete user ' + username);
-      });
-    }
+    this.userService.DeleteUser(userId).subscribe(data => {
+      this.alertify.success('User ' + username + ' successfuly deleted');
+      this.getAllUsers();
+    }, error => {
+      this.alertify.error('Failed to delete user ' + username);
+    });
   }
 }
