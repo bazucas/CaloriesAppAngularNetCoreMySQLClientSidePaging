@@ -82,3 +82,17 @@ C:\Users\Luis\Desktop\CaloriesAppAngularNetCoreMySQLClientSidePaging\backend\API
 C:\Users\Luis\Desktop\CaloriesAppAngularNetCoreMySQLClientSidePaging\backend\API\obj\Debug\netcoreapp2.1\backend.RazorTargetAssemblyInfo.cache
 C:\Users\Luis\Desktop\CaloriesAppAngularNetCoreMySQLClientSidePaging\backend\API\obj\Debug\netcoreapp2.1\backend.dll
 C:\Users\Luis\Desktop\CaloriesAppAngularNetCoreMySQLClientSidePaging\backend\API\obj\Debug\netcoreapp2.1\backend.pdb
+C:\Users\Luis\Desktop\lkapp\CaloriesAppAngularNetCoreMySQLClientSidePaging\backend\API\bin\Debug\netcoreapp2.1\backend.deps.json
+C:\Users\Luis\Desktop\lkapp\CaloriesAppAngularNetCoreMySQLClientSidePaging\backend\API\bin\Debug\netcoreapp2.1\backend.runtimeconfig.json
+C:\Users\Luis\Desktop\lkapp\CaloriesAppAngularNetCoreMySQLClientSidePaging\backend\API\bin\Debug\netcoreapp2.1\backend.runtimeconfig.dev.json
+C:\Users\Luis\Desktop\lkapp\CaloriesAppAngularNetCoreMySQLClientSidePaging\backend\API\bin\Debug\netcoreapp2.1\backend.dll
+C:\Users\Luis\Desktop\lkapp\CaloriesAppAngularNetCoreMySQLClientSidePaging\backend\API\bin\Debug\netcoreapp2.1\backend.pdb
+C:\Users\Luis\Desktop\lkapp\CaloriesAppAngularNetCoreMySQLClientSidePaging\backend\API\obj\Debug\netcoreapp2.1\backend.csprojAssemblyReference.cache
+C:\Users\Luis\Desktop\lkapp\CaloriesAppAngularNetCoreMySQLClientSidePaging\backend\API\obj\Debug\netcoreapp2.1\backend.csproj.CoreCompileInputs.cache
+C:\Users\Luis\Desktop\lkapp\CaloriesAppAngularNetCoreMySQLClientSidePaging\backend\API\obj\Debug\netcoreapp2.1\backend.RazorAssemblyInfo.cache
+C:\Users\Luis\Desktop\lkapp\CaloriesAppAngularNetCoreMySQLClientSidePaging\backend\API\obj\Debug\netcoreapp2.1\backend.RazorAssemblyInfo.cs
+C:\Users\Luis\Desktop\lkapp\CaloriesAppAngularNetCoreMySQLClientSidePaging\backend\API\obj\Debug\netcoreapp2.1\backend.AssemblyInfoInputs.cache
+C:\Users\Luis\Desktop\lkapp\CaloriesAppAngularNetCoreMySQLClientSidePaging\backend\API\obj\Debug\netcoreapp2.1\backend.AssemblyInfo.cs
+C:\Users\Luis\Desktop\lkapp\CaloriesAppAngularNetCoreMySQLClientSidePaging\backend\API\obj\Debug\netcoreapp2.1\backend.RazorTargetAssemblyInfo.cache
+C:\Users\Luis\Desktop\lkapp\CaloriesAppAngularNetCoreMySQLClientSidePaging\backend\API\obj\Debug\netcoreapp2.1\backend.dll
+C:\Users\Luis\Desktop\lkapp\CaloriesAppAngularNetCoreMySQLClientSidePaging\backend\API\obj\Debug\netcoreapp2.1\backend.pdb

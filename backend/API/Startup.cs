@@ -121,7 +121,7 @@ namespace API
             }
 
             // reseed database if needed
-            // seeder.SeedUsers();
+            seeder.SeedUsers();
 
             app.UseCors("MyPolicy");
             app.UseAuthentication();

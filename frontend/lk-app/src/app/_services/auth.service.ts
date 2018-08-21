@@ -2,7 +2,7 @@ import { environment } from '../../environments/environment';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { User } from '../_models/User';
 import { Injectable } from '@angular/core';
-import { map } from 'rxjs/operators';
+import { map, tap } from 'rxjs/operators';
 import { JwtHelperService } from '@auth0/angular-jwt';
 import { AuthUser } from '../_models/authUser';
 import { Login } from '../_models/Login';
@@ -22,13 +22,14 @@ export class AuthService {
     return this.http.post<AuthUser>(this.baseUrl + 'auth/login', model, {headers: new HttpHeaders()
       .set('Content-Type', 'application/json')})
       .pipe(
-        map(user => {
-          if (user) {
-            localStorage.setItem('token', user.tokenString);
-            localStorage.setItem('user', JSON.stringify(user.user));
-            this.currentUser = user.user;
-            this.decodedToken = this.jwtHelper.decodeToken(user.tokenString);
-            this.userToken = user.tokenString;
+        map(res => {
+          if (res) {
+            console.log(res);
+            localStorage.setItem('token', res.tokenString);
+            localStorage.setItem('user', JSON.stringify(res.user));
+            this.currentUser = res.user;
+            this.decodedToken = this.jwtHelper.decodeToken(res.tokenString);
+            this.userToken = res.tokenString;
           }
         }));
   }
@@ -44,6 +45,7 @@ export class AuthService {
       const isExpired = this.jwtHelper.isTokenExpired(token);
       if (!isExpired) {
         this.decodedToken = this.jwtHelper.decodeToken(localStorage.getItem('token'));
+        this.currentUser = JSON.parse(localStorage.getItem('user'));
       }
       return !isExpired;
     }

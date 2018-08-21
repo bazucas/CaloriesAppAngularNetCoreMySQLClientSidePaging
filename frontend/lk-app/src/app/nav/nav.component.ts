@@ -2,6 +2,7 @@ import { AlertifyService } from '../_services/alertify.service';
 import { AuthService } from '../_services/auth.service';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { Meal } from '../_models/meal';
 
 @Component({
   selector: 'app-nav',
@@ -10,13 +11,34 @@ import { Router } from '@angular/router';
 })
 export class NavComponent implements OnInit {
   model: any = {};
-  calories = 1500;
+  calories: Number;
+  dailyIntake: Number;
+  loggedIn: boolean;
 
   constructor(public authService: AuthService,
               private alertify: AlertifyService,
               private router: Router) { }
 
   ngOnInit() {
+    this.loggedIn = this.authService.loggedIn();
+    this.calories = this.authService.currentUser.calories;
+    this.dailyIntake = this.calculateIntake(this.authService.currentUser.meals);
+    debugger;
+  }
+
+  calculateIntake(meals: Meal[]) {
+    let sumCalories = 0;
+    meals.forEach(meal => {
+      sumCalories += meal.calories
+    });
+    return sumCalories;
+  }
+
+  getStyle() {
+    if ( this.dailyIntake > this.calories)
+      return "red"
+    else
+      return "green"
   }
 
   login() {
@@ -36,9 +58,5 @@ export class NavComponent implements OnInit {
     localStorage.removeItem('user');
     this.alertify.message('logged out');
     this.router.navigate(['/home']);
-  }
-
-  loggedIn() {
-    return this.authService.loggedIn();
   }
 }

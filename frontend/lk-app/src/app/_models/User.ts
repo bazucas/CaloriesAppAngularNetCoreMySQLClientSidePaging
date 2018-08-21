@@ -6,7 +6,7 @@ export interface User {
     email: string;
     role: string;
     added: string;
-    maxCal: Number;
+    calories: Number;
     dailyCal: Number;
     meals: Meal[];
 }
